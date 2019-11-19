@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+</head>
+<body>
+<div class="echo">
+<input type="text" v-model='word'/>
+搜索{{result}}
+</div>
+<script src='../vue.min.js'></script>
+<script src='axios/dist/axios.js'></script>
+	<script>
+  var mhy=new Vue({
+  	el:'.echo',
+  	data:{
+  		word:'',
+  		result:''
+  	},
+  	watch:{
+  		word:function(oldV,newV){
+  			console.log(oldV+'==>'+newV)
+  			axios.get('11-8.php').then(function(response){
+  				console.log(response)
+  				result=response.data
+  			})
+  		}
+  	}
+
+  })
+	</script>
+</body>
+</html>

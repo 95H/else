@@ -1,0 +1,16 @@
+/*可以在这里添加你自己的css*/
+ danger {
+  background-color: #ccc;
+  padding: 2px 5px;
+  border-radius: 2px;
+  font-size: 14.0pt;
+  color: #000;
+}
+danger.isNullValue{ padding:2px 25px;}
+.edui-editor-iframeholder{
+	width: 100%!important;
+	height: 100%!important;
+}
+.edui-default .edui-popup{
+	background-color: none;
+}

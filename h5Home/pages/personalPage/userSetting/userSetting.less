@@ -1,0 +1,189 @@
+@import "../../../static/css/variable.less";
+body,html{
+	background:#f5f5f5
+}
+.setInpt{
+	margin-top:unit(20/@u,@uu);
+	width:100%;
+	padding:0 unit(30/@u,@uu);
+	background:#fff;
+	position:relative;
+	input{
+		height:unit(100/@u,@uu);
+		width:100%;
+	}
+}
+.saveNikename{
+	display:block;
+	width:90%;
+	margin:unit(85/@u,@uu) auto 0;
+	background:@primaryColor;
+	height:unit(80/@u,@uu);
+	line-height:unit(80/@u,@uu);
+	.border-radius(50px);
+	color:#fff;
+	font-size:unit(32/@u,@uu);
+}
+.userNameHit{
+	span{
+		font-size:unit(20/@u,@uu);
+		color:#ff544c;
+		padding-left:unit(30/@u,@uu)
+	}
+}
+
+.setSign,.feedBack{
+	padding-left:unit(30/@u,@uu);
+	padding-right:unit(30/@u,@uu);
+	margin-top:unit(120/@u,@uu);
+	overflow:hidden;
+	.texteraWarp{
+		width:100%;
+		background:#fff;
+		.border-radius(5px);
+		overflow:hidden;
+		border: 1px solid #ddd;
+		padding:unit(20/@u,@uu);
+		font-size:unit(32/@u,@uu);
+		textarea{
+			width:100%;
+			height:unit(200/@u,@uu);
+			border:none;
+			resize:none;
+			outline: none;
+		}
+		p{
+			color:#999999;
+			text-align: right;
+		}
+	}
+	.inputWarp{
+	    width:100%;
+        background:#fff;
+        .border-radius(5px);
+        overflow:hidden;
+        border: 1px solid #ddd;
+        height: unit(100/@u,@uu);
+        font-size:unit(32/@u,@uu);
+        line-height: unit(100/@u,@uu);
+        margin-top: unit(20/@u,@uu);
+        input{
+            width: 100%;
+            padding: 0 unit(20/@u,@uu);
+        }
+	}
+	button{
+		width:100%;
+		height:unit(80/@u,@uu);
+		line-height:unit(80/@u,@uu);
+		background:@primaryColor;
+		color:#fff;
+		.border-radius(50px);
+		margin-top:unit(110/@u,@uu)
+	}
+}
+.setoccupation{
+	.jobsList{
+		padding-left:unit(30/@u,@uu);
+		li{
+			float:left;
+			width:33.33%;
+			height:unit(80/@u,@uu);
+			margin-top:unit(20/@u,@uu);
+			text-align:center;
+      		font-size:unit(32/@u,@uu);
+      		a{
+      			display:block;
+      			outline: none;
+		        height:100%;
+		        .border-radius(unit(8/@u,@uu));
+		        line-height:unit(80/@u,@uu);
+		        border:1px solid #ddd;
+		        background:#fff;
+		        color:#999;
+		        margin-right:unit(30/@u,@uu);
+		        &.is-active{
+		        	color:#fff;
+		        	background:@primaryColor;
+		        }
+      		}
+		}
+	}
+}
+.jobyear,.studyDirection{
+	.selectWarp{
+		background:#fff;
+		height:unit(105/@u,@uu);
+		line-height:unit(105/@u,@uu);
+		padding:0 unit(30/@u,@uu);
+		margin-top:unit(20/@u,@uu);
+		font-size:unit(32/@u,@uu);
+		display:flex;
+		-webkit-box-flex: 1;
+	    -ms-flex: 1;
+	    flex: 1;
+		label{
+			color:#999;
+		    width: 65px;
+		    white-space: nowrap;
+		}
+
+	}
+	.optionWarp{
+		width:85%;
+		position: relative;
+		.animation{
+            -webkit-animation:fadeInDown 1s .2s ease both;
+            -moz-animation:fadeInDown 1s .2s ease both;}
+            @-webkit-keyframes fadeInDown{
+            0%{opacity:0;
+            -webkit-transform:translateY(-20px)}
+            100%{opacity:1;
+            -webkit-transform:translateY(0)}
+            }
+            @-moz-keyframes fadeInDown{
+            0%{opacity:0;
+            -moz-transform:translateY(-20px)}
+            100%{opacity:1;
+            -moz-transform:translateY(0)}
+        }
+		p{
+			font-size:unit(32/@u,@uu);
+			color:#333;
+			padding-left:unit(20/@u,@uu);
+			height: 100%;
+			i{
+				color:#999999;
+				font-size:unit(48/@u,@uu);
+				vertical-align: middle;
+				float: right;
+				margin-top: 4px;
+			}
+		}
+		.directionList{
+		    width: 100%;
+		    background: #ffffff;
+		    margin-top:unit(10/@u,@uu);
+		    -webkit-box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.15);
+            box-shadow: 0px 4px 20px rgba(  0, 0, 0, 0.15);
+            position: absolute;
+            top: 52px;
+            left: 0;
+            li{
+                height:unit(80/@u,@uu);
+                line-height:unit(80/@u,@uu);
+                padding: 0 unit(20/@u,@uu);
+            }
+		}
+	}
+}
+.studyDirection{
+  .selectWarp{
+    margin-top:unit(20/@u,@uu);
+  }
+}
+.jobyear{
+  .selectWarp{
+    margin-top:unit(120/@u,@uu);
+  }
+}

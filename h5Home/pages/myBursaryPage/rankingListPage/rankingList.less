@@ -1,0 +1,107 @@
+@import "../../../static/css/variable.less";
+body{
+    background:@backgroundColor;
+}
+.warp{
+    width: 100%;
+    .headTitle{
+        padding: 0 unit(50/@u,@uu);
+        width: 100%;
+        background: #FFFFFF;
+        height:unit(100/@u,@uu);
+        line-height:unit(100/@u,@uu);
+        p{
+            float: left;
+            text-align: center;
+            color: @color3;
+            font-size: unit(30/@u,@uu);
+            &:nth-child(1){
+                width: 18%;
+            }
+            &:nth-child(2){
+                width: 45%;
+            }
+            &:nth-child(3){
+               width: 37%;
+               text-align: right;
+               padding-right:unit(40/@u,@uu);
+            }
+        }
+    }
+    .empty{
+        margin-top: unit(20/@u,@uu);
+    }
+    .listWarp{
+        width: 100%;
+        background: #FFFFFF;
+        padding: 0 unit(50/@u,@uu);
+        margin-top: unit(20/@u,@uu);
+        overflow-y:scroll;
+        .list{
+           height:unit(100/@u,@uu);
+           line-height:unit(100/@u,@uu);
+           p{
+                float: left;
+                text-align: center;
+                color: @color3;
+                font-size: unit(30/@u,@uu);
+                span{
+                    width: unit(54/@u,@uu);
+                    height: unit(54/@u,@uu);
+                    display: inline-block;
+                    vertical-align: middle;
+                    line-height:unit(54/@u,@uu);
+                }
+
+           }
+           p.ranking{
+               font-size: unit(33/@u,@uu);
+               font-weight: bold;
+               width: 18%;
+           }
+           p.amount{
+               color: @primaryColor;
+               width: 37%;
+               text-align: right;
+               padding-right:unit(40/@u,@uu);
+           }
+           p.phoneNum{
+               width: 45%;
+           }
+           p>span.top1{
+               background: url(/web/images/myBursary/1.png) no-repeat center center;
+               background-size: unit(54/@u,@uu) unit(54/@u,@uu);
+           }
+           p>span.top2{
+               background: url(/web/images/myBursary/2.png) no-repeat center center;
+               background-size: unit(54/@u,@uu) unit(54/@u,@uu);
+           }
+           p>span.top3{
+               background: url(/web/images/myBursary/3.png) no-repeat center center;
+               background-size: unit(54/@u,@uu) unit(54/@u,@uu);
+           }
+        }
+    }
+    .bottom{
+        width:100%;
+        height: unit(88/@u,@uu);
+        line-height: unit(88/@u,@uu);
+        color: @primaryColor;
+        font-size: unit(30/@u,@uu);
+        text-align: center;
+        position:fixed;
+        bottom:0;
+        left:0;
+        span{
+          display:inline-block;
+          margin:0 unit(20/@u,@uu);
+        }
+        em{
+          display:inline-block;
+          width:unit(30/@u,@uu);
+          height:unit(2/@u,@uu);
+          background-color: rgba(56,173,255,0.6);
+          vertical-align: middle;
+        }
+    }
+}

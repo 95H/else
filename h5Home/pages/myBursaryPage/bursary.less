@@ -1,0 +1,203 @@
+@import "../../static/css/variable.less";
+body{
+    background:@backgroundColor;
+}
+.warp{
+    width: 100%;
+    padding-bottom:unit(98/@u,@uu);
+    .headImgWarp{
+        background:@primaryColor;
+        width: 100%;
+        padding: unit(20/@u,@uu) unit(29/@u,@uu);
+        position: relative;
+        .tx_warp{
+            width: 100%;
+            height: unit(414/@u,@uu);
+            background: url(/web/images/myBursary/bg.png) no-repeat center center;
+            background-size:100% 100%;
+            position: relative;
+            overflow: hidden;
+            .amount{
+               font-size: unit(74/@u,@uu);
+               color:@color3;
+               margin-top: unit(85/@u,@uu);
+               text-align: center;
+               min-height: unit(84/@u,@uu);
+               font-weight: bold;
+               span{
+                   font-size: unit(40/@u,@uu);
+                   vertical-align: middle;
+               }
+               i{
+                   font-style: normal;
+               }
+            }
+            .btn_warp{
+                width: 100%;
+                text-align: center;
+                margin-top:unit(50/@u,@uu);
+                button{
+                    width: unit(210/@u,@uu);
+                    height: unit(60/@u,@uu);
+                    border-color: @primaryColor !important;
+                    background: none;
+                    font-size: unit(30/@u,@uu);
+                    color: @primaryColor;
+                    border-radius:30px;
+                    &:first-child{
+                        margin-right:unit(61/@u,@uu);
+                    }
+                    &:last-child{
+                        margin-right:0;
+                    }
+                    i{
+                        vertical-align: middle;
+                        font-size:unit(28/@u,@uu);
+                    }
+                }
+                .disabled{
+                    border-color: #bbbbbb !important;
+                    color: #bbbbbb;
+                }
+            }
+            .info{
+                font-size: unit(26/@u,@uu);
+                color: #50b7ff;
+                height:unit(68/@u,@uu);
+                line-height: unit(68/@u,@uu);
+                position: absolute;
+                width: 100%;
+                text-align: center;
+                left:0;
+                bottom:unit(22/@u,@uu);
+            }
+        }
+    }
+    .cont_warp{
+        margin-top: unit(20/@u,@uu);
+        .el-tabs__header{
+            height: unit(100/@u,@uu);
+            border-bottom: none;
+            margin: 0;
+            overflow: hidden;
+            background: #fff;
+            .el-tabs__nav-scroll{
+                height: 100%;
+                .el-tabs__nav{
+                    height: 100%;
+                    width: 100%;
+                    text-align: center;
+                    .el-tabs__item{
+                        height: 100%;
+                        line-height: unit(100/@u,@uu);
+                        width:22%;
+                        padding: 0;
+                        color: @color3;
+                        font-size:unit(32/@u,@uu);
+                        &:nth-child(2){
+                            margin-right:unit(235/@u,@uu);
+                        }
+                    }
+                    .is-active{
+                        border-bottom:3px solid #38adff;
+                        color:@primaryColor;
+                        text-align: center;
+                    }
+                }
+            }
+            .el-tabs__nav-wrap{
+                height: 100%;
+                .el-tabs__active-bar{
+                    display: none;
+                }
+            }
+        }
+        .recordWarp{
+            margin: unit(20/@u,@uu) 0;
+            width: 100%;
+            background: #ffffff;
+            padding-left: unit(30/@u,@uu);
+            overflow: auto;
+            height: auto;
+            .li_a{
+                height: unit(136/@u,@uu);
+                width: 100%;
+                position: relative;
+                border-bottom: 1px solid #f6f6f6;
+                &:last-child{
+                    border-bottom:0 !important;
+                }
+                .link{
+                    color:@color3;
+                    display: block;
+                    .txt_info{
+                        padding-top: unit(28/@u,@uu);
+                        p{
+                            font-size: unit(28/@u,@uu);
+                            span{
+                                margin-left: unit(23/@u,@uu);
+                            }
+                        }
+                        .data{
+                            color: @color9;
+                            margin-top: unit(20/@u,@uu);
+                            font-size: unit(26/@u,@uu);
+                            span{
+                                color:@primaryColor;
+                                margin-left: 0;
+                            }
+                            em{
+                                text-align: center;
+                                font-size:unit(18/@u,@uu);
+                                vertical-align:middle;
+                                font-style: normal;
+                                margin: 0 unit(10/@u,@uu);
+                                color: #bbb;
+                            }
+                        }
+                    }
+                    .order_amout{
+                        position: absolute;
+                        color: #ff544c;
+                        font-size:unit(34/@u,@uu);
+                        right:unit(70/@u,@uu);
+                        height: unit(128/@u,@uu);
+                        line-height: unit(128/@u,@uu);
+                        top: 0;
+                    }
+                    .iconfont{
+                        position:absolute;
+                        right:unit(20/@u,@uu);
+                        margin-right:0;
+                        top:0;
+                        font-size: unit(38/@u,@uu);
+                        color: #bbbbbb;
+                        height: unit(128/@u,@uu);
+                        line-height: unit(128/@u,@uu);
+                    }
+                }
+                &:last-child{
+                    border: none;
+                }
+            }
+        }
+    }
+    .empty{
+        margin-top: unit(20/@u,@uu);
+    }
+    .bottom_btn{
+        width: 100%;
+        height: unit(98/@u,@uu);
+        line-height: unit(98/@u,@uu);
+        background:@primaryColor;
+        color:#FFFFFF;
+        font-size: unit(34/@u,@uu);
+        text-align: center;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        a{
+            color:#FFFFFF;
+        }
+    }
+}

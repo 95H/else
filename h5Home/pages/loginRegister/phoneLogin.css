@@ -1,0 +1,137 @@
+/*
+* 自定义css变量
+*/
+/*单位*/
+/**单位常量使用方法 unit(100/@u,@uu)  nuit: less删除或更换单位行数 nuit(数值,单位)**/
+/*css3*/
+image[lazy=loading] {
+  width: 40px;
+  height: 300px;
+  margin: auto;
+}
+.mint-msgbox {
+  height: 9.25rem;
+  background-color: transparent;
+  border-radius: 8px;
+}
+.mint-msgbox .mint-msgbox-content {
+  height: 6.0625rem;
+  background-color: #fff;
+}
+.mint-msgbox .mint-msgbox-content .mint-msgbox-message {
+  margin-top: 1.5625rem;
+  color: #000000;
+  font-size: 1.125rem;
+}
+.mint-msgbox .mint-msgbox-btns {
+  height: 3.125rem;
+  line-height: 3.125rem;
+}
+.mint-msgbox .mint-msgbox-btns .mint-msgbox-btn {
+  font-size: 1.125rem;
+  margin-bottom: -1px;
+}
+.mint-msgbox .mint-msgbox-btns .mint-msgbox-cancel {
+  color: #999;
+}
+.mint-msgbox .mint-msgbox-btns .mint-msgbox-confirm {
+  color: #FFFFFF;
+  background: #38adff;
+}
+.cl {
+  clear: both;
+}
+.cl:after {
+  content: '';
+  height: 0;
+  display: block;
+  clear: both;
+  visibility: hidden;
+}
+.loginPage .formWarp {
+  width: 90%;
+  margin: 0 auto;
+}
+.loginPage .formWarp .inpWarp {
+  width: 100%;
+  margin: 0 auto 0.875rem !important;
+}
+.loginPage .formWarp .inpWarp .usernameBox,
+.loginPage .formWarp .inpWarp .phoneCodeWarp {
+  width: 100%;
+}
+.loginPage .formWarp .inpWarp .usernameBox .inpBox,
+.loginPage .formWarp .inpWarp .phoneCodeWarp .inpBox {
+  -webkit-border-radius: 1.5625rem;
+  -moz-border-radius: 1.5625rem;
+  -ms-border-radius: 1.5625rem;
+  -o-border-radius: 1.5625rem;
+  border-radius: 1.5625rem;
+  box-sizing: border-box;
+  overflow: hidden;
+  border: solid 1px #d4d4d4;
+  height: 2.75rem;
+}
+.loginPage .formWarp .inpWarp .usernameBox .inpBox input,
+.loginPage .formWarp .inpWarp .phoneCodeWarp .inpBox input {
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
+  padding: 0 0.9375rem;
+  font-size: 0.875rem;
+}
+.loginPage .formWarp .inpWarp .phoneCodeWarp {
+  margin-top: 0.9375rem;
+}
+.loginPage .formWarp .inpWarp .phoneCodeWarp .inpBox input {
+  float: left;
+  display: inline-block;
+  width: 70.6%;
+  height: 100%;
+}
+.loginPage .formWarp .inpWarp .phoneCodeWarp .inpBox .codeWarp {
+  float: left;
+  vertical-align: top;
+  display: inline-block;
+  width: 29.4%;
+  height: 100%;
+  background-color: #f8f8f8;
+}
+.loginPage .formWarp .inpWarp .phoneCodeWarp .inpBox .codeWarp p {
+  line-height: 2.75rem;
+  font-size: 0.875rem;
+  color: #38adff;
+  text-align: center;
+  border-left: 0.03125rem solid #d4d4d4;
+}
+.loginPage .formWarp .Accountlogin {
+  font-size: 0.875rem;
+  color: #38adff;
+  margin-left: 0.9375rem;
+}
+.loginPage .formWarp .logoBtnWarp {
+  margin: 1.875rem auto 0;
+  width: 100%;
+}
+.loginPage .formWarp .logoBtnWarp button {
+  display: block;
+  width: 100%;
+  height: 2.75rem;
+  line-height: 2.75rem;
+  background: #38adff;
+  border-radius: 1.375rem;
+  color: #fff;
+  font-size: 1.125rem;
+  text-align: center;
+}
+.loginPage .formWarp .logoBtnWarp a {
+  display: block;
+  width: 100%;
+  text-align: center;
+  font-size: 0.75rem;
+  color: #999999;
+  margin-top: 1rem;
+}
+.loginPage .formWarp .logoBtnWarp a span {
+  color: #333333;
+}

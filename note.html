@@ -1,0 +1,2801 @@
+router-view的查找规则是从最大的元素开始查找 依次向内部查找
+
+路由的两种跳转方法：
+1.<router-link ：to="路径"></router-link>
+2.直接是一个方法（也就是function）:
+this.$router.push({（可以写成repelace）
+path:'路径'，
+name：'当前要去的页面中的name'，
+id：'后台给你的id'（后太逻辑的时候）
+npm install bower -g
+bower是和npm一样的东西，是包管理工具
+
+Vue框架安装所需环境及版本信息如下： UI框架
+1.node@6.0.0以上 npm@3.0.0y以上
+2.基于webpack模块化管理工具
+vue init webpack admin-vuetest -g
+vue的优点、缺点
+优点：
+1.前端代码越来越模块化 特别像java之类的 分组件化开发，vue是一个典型的模块化开发的前端框架
+2.语法简单(模板) 学习成本低
+3.集成Es6、Es7的写法 代码更加简洁 易维护（因为有babel语法糖的存在 转化为Es5的语法才能在浏览器中执行）
+4.数据双向绑定（后台或者前端开发人员不再使用长连接或者事件轮询的方法进行页面更新）{{ num }}
+5.轻量级的数据驱动视图的变化
+6.适合做中小型的项目 （不用vuex的情况下）
+7.更偏向于移动端
+缺点：
+1.不适合做偏大型的项目
+2.对浏览器的支持不是很好
+3.IE8以上的浏览器（IE9也不支持 面试官不问就不说）
+
+vue脚手架的安装步骤：
+1、检查node、npm、webpack是否已经安装成功,
+命令：当前工具 -v
+2、安装脚手架，命令：npm/cnpm install vue-cli -g
+3、初始化vue项目，
+命令：vue init webpack 你的项目名称
+例如：vue init webpack laowang
+4、cd到自己在初始化vue项目建立的文件夹下面
+命令：cd laowang(你建立的项目文件夹)
+5、下载安装项目的依赖包 命令：npm install
+6、启动你的项目服务器，让项目跑起来 命令：npm run dev
+7、开发结束后的打包发布 命令：npm run build
+
+fetch笔记：
+
+学过的异步请求方法，ajax、promise()、iframe()(在IE中用的比较多)
+
+ajax:
+优点:
+1、可以在不刷新整个页面的情况下实现局部刷新或者进行请求数据。
+2、性能大大提高。
+3、用户体验性提升。
+4、减少服务器压力(客户端帮助服务器分担压力，自己能处理的就先自己处理)。
+
+缺点:
+1、安全性降低(好多接口被暴露出来，浏览器安全性降低)。
+2、破坏了浏览器回退按钮。
+
+3、破坏了js程序的线性执行。
+
+4、对搜索引擎的支持比较弱(静态的东西有利于SEO搜索引擎优化，容易抓取，而动态创建的元素或者动态拿到的数据是不容易抓取的)。
+5、接口之间链式调用的相互联系不是很好。就是耦合性太低。
+
+promise():
+
+优点:
+1、代码比较规范化，易于维护。
+2、增强了多个接口之间的互相联系(但是没有完全解决)，因为内部增加了语法糖的缘故。
+3、promise()接受两个参数，一个成功的resovled，一个rejected。好处:在它内部有三种状态:准备 成功 失败 而且都是不可改变状态。也就是说更加条理化。
+
+缺点：
+1、状态无法取消(一旦进去成功状态或者失败状态就无法停止)
+
+2、安全性降低(好多接口被暴露出来，浏览器安全性降低)。
+
+3、破坏了浏览器回退按钮。
+
+4、破坏了js程序的线性执行。
+
+5、对搜索引擎的支持比较弱(静态的东西有利于SEO搜索引擎优化，容易抓取，而动态创建的元素或者动态拿到的数据是不容易抓取的)。
+6、浏览器支持比较弱(有兼容性问题)。
+
+fetch():
+
+2017年10月30日 笔记
+
+scss及ruby配置：http://www.cnblogs.com/cshi/p/5622650.html
+
+Output paths to refresh:
+
+改成这样:$FileNameWithoutExtension$.css:$FileNameWithoutExtension$.css.map
+
+Arguments路径：--no-cache --update --sourcemap --watch $FileName$:$FileParentDir$\css\$FileNameWithoutExtension$.css
+
+谷歌安装firebug:https://getfirebug.com/releases/lite/chrome/
+
+一级路由及嵌套路由的讲解笔记
+
+
+1、 path:一级路由下面的path是绝对路径，为了显示在地址栏，为了我们
+开发人员便于维护
+
+
+2、 name：是为了路由的转而生，但是需求不同，跳转的页面不是一定精确的，
+所以需要给 唯一的id去辨识，然后跳转
+
+
+3、component：是为了把vue组件的绝对路径的变量缓存下来，也是为
+路由跳转而服务
+
+
+4、children：子路由也就是所说的嵌套路由，为了展示出单页应用的这个
+效果而生。
+
+5、v-for的循环是加在谁上面就会循环此元素及所有子元素。
+
+6、$router.options.routes是vue中路由的数组，可以动态循环渲染到
+其他组件中。
+
+移动端去除滚动条样式：.mp_page_body::-webkit-scrollbar{
+display:none;
+}
+
+2017年11月1日 笔记
+vuex讲解
+1、vuex概念：vuex是专门为vue框架而生的一个状态管理插件，只能用在vue框架中。是管理、修改、添加的的应用，对整个vue项目中的数据进行管理、共用。简单的说：就是data中需要共用的属性。
+
+2、vuex中所有的属性都是以对象的方式去声明。
+
+3、action：是行为动作的意思，主要是与视图有联系，也就是用户所触发的动作行为。
+
+4、mutations：是行为动作的意思，与action不同的是，mutations是我们开发人员对数据的一种处理，也就是修改state的数据，写一些方法。
+
+5、state：是数据的存储，我们所要访问的数据对象，也就是我们所有的属性都通过state 访问，应为它是数据公用的一个存储机制。
+
+6、$store.state 基本是固定的，是数据的渲染方式。
+$store.commit()是用户所出发出或者提交做的一些行为动作的写法。
+
+
+
+2017年11月2日 笔记
+
+1、高内聚 低耦合：高度集中管理，依次有条不紊的逻辑执行。
+
+2、this.$store.state 访问数据
+this.$store.getters 访问方法
+
+3、mapState:是简化数据访问的辅助函数，
+
+axios的请求配置: http://www.cnblogs.com/libin-1/p/6607945.html
+
+2017年11月6日 笔记
+
+git讲解：
+概念：版本控制工具，大多数公司用的git做开发，SVN也是版本控制工具，
+但是市场上用的比较少，适合少数人开发比较小的项目。
+功能：
+1、从服务器（远程仓库）上克隆完整的Git仓库（包括代码和版本信息）到
+本地（自己的电脑）上。
+
+2、git可以在一个项目中创建新的分支，可以是多个分支。默认的
+分支是master。
+
+3、功能及命令和主分支的一样。可以进行操作。
+
+4、适合多人开发，速度快，灵敏度高。
+
+缺点：
+1、资料少（学习资料），一般的资料都是英文的。English
+
+2、学习成本比较高，也就是比较难理解，命令多。注意事项多，
+操作较繁琐。
+
+3、保密性差：代码从远程仓库拉下来到本地，所有的版本
+信息、接口、服务器都是能看到的。暴露性比较强。
+
+操作命令：
+
+第一次创建的项目需要放到仓库中需输入：
+git remote add origin 你的仓库地址。
+
+1、git init：初始化本地仓库，也就是暂存区。
+2、git add 你添加的文件或者文件夹之类的。
+3、git add . 是添加所有的something .代表所有的东西；
+4、git commit -m "这里是你的提交描述"
+5、git commit -am "这里是你的提交描述"， -am就是一次性
+提交，不用输入git add 命令了。
+6、git push -u origin master(主分支)/zimogod(开分支) 推送到远程
+仓库。（第一次推送使用此命令） 第一次之后的命令是 git push
+7、git pull 是将远程仓库中的代码更新到本地(也就是暂存区)
+
+8、git log 查看所有人员提交代码的描述信息
+9、git status 查看提交的状态，是否提交成功
+清除git窗口的输入内容命令：clear
+清除终端窗口(cmd)的内容命令：cls
+
+2017年11月7号 笔记
+
+版本回退git reset --hard HEAD^ 只回退工作区中的版本
+
+SHA256:Va3GMxqQ3tTLVUMKv3krxxc5hB0DdBEKyHntPFGETiY 18518517713@163.com
+
+
+2017年11月8日 笔记
+
+@mixin声明混合，可以传递参数，参数名以$符号开始，多个参数以逗号分开，
+也可以给参数设置默认值。声明的@mixin通过@include来调用。
+
+1、伪元素相当于一个行内元素 变为块级元素为display:block;
+2、当给一个元素给position:absolute;的时候，这个元素就会自动变换成块级元素。
+3、伪类元素是父元素的子元素。
+
+rem适配移动端函数
+$fontSize:75;
+@function px2Rem ($px){
+@return $px/$fontSize + rem;
+}
+
+angular的优缺点：
+
+优点：1、偏向于数据服务，
+2、偏向于大型项目
+3、数据双向绑定、路由跳转
+4、更适合后台管理系统
+
+缺点：1、不适合大型项目及偏向于视图的项目。
+2、angular太大太重，学习成本太高，不易理解
+
+bind绑定的事件是直接绑定在当前元素上的 响应时间比较快
+
+on绑定的事件是事件委托，绑定的元素在当前元素的父级元素或其他，
+一般适用于动态创建的DOM节点中的绑定事件，因为动态创建的DOM元素直接用
+bind绑定会失败，找不到当前元素
+
+v-for //vue框架中的循环 一般用于列表展示
+v-show = false/true //一般用于元素的显示或隐藏，默认值true
+v-if //一般用于条件判断是否正确或者DOM元素的显示与否
+v-else //自己百度
+v-else-if //一般用于复杂的if判断句，一般用不到，但是很必须要知道是干什么的
+v-text //一般用于文字内容的数据双向绑定
+v-on/@click = "方法名" //此指令就是对某个DOM元素的绑定事件，@click是v-on的简写
+v-model = "" //一般用于数据双向绑定在表单上，大概是表单提交
+v-once //一般用于执行一次性的方法或功能
+
+ng-cloak //是angular里面防止刷新双括号闪烁的情况发生，
+都加在body上面，原理是display：none；
+
+v-cloak //是vue里面防止刷新双括号闪烁的情况发生，
+vue1.x都加在body上面，原理是display：none；
+vue2.x之后都需要加载在另外的DOM节点上，即仅次于body的子节点
+用法：[v-cloak]{display:none;}(此css写在style里面)
+v-cloak的用法：http://www.jb51.net/article/109633.html
+<html>
+
+<body v-cloak>
+
+</body>
+
+</html>
+
+
+2017年10月11日 笔记
+vue脚手架的安装步骤：
+1、检查node、npm、webpack是否已经安装成功,命令：当前工具 -v
+2、安装脚手架，命令：npm/cnpm install vue-cli -g
+3、初始化vue项目，命令：vue init webpack 你的项目名称 例如：vue init webpack laowang
+4、cd到自己在初始化vue项目建立的文件夹下面 命令：cd laowang(你建立的项目文件夹)
+5、下载安装项目的依赖包 命令：npm install
+6、启动你的项目服务器，让项目跑起来 命令：npm run dev
+7、开发结束后的打包发布 命令：npm run build
+
+2017年10月13日 笔记
+
+1、github是一个世界级的代码托管的地方，也就是代码仓库，
+目前是世界上最流行也是运用最广泛的仓库之一。
+2、码云：是中国人自己开发的代码托管仓库，在中国用的也比较多。
+
+
+2017年10月17日 笔记
+
+1、router文件夹下面只有一个index.js配置路由的，再也没有其他文件了。
+2、写页面的文件夹，路由的路径要依次追踪到当前的 .vue页面，这样做为了
+好找错误，为了好维护代码。
+3、目前不要用严格模式： 如：'use strict';
+4、* 在路由中代表匹配不到路由，由*代替，也就是404页面会显示，不会回到
+根路由的页面。
+
+移动端长按删除、可滑动的按钮解决方法 ：http://www.cnblogs.com/beiz/p/5817192.html
+
+Element-UI组件库： http://element.eleme.io/#/zh-CN/component/button
+
+全局安装echarts: npm install echarts -S
+
+本地安装node-sass: npm install node-sass --save-dev
+
+VUE前段架构参考git源码：https://github.com/vuejs/vue.git
+
+Vue项目操作：http://www.cnblogs.com/myTerritory/p/vue.html
+
+永久激活webstorm： http://jingyan.baidu.com/article/9f63fb919674f2c8400f0e9a.html
+
+新建项目提交并创建和代码库的连接：http://www.jianshu.com/p/11859cd561c8
+
+git常用操作：http://www.cnblogs.com/cspku/articles/Git_cmds.html
+
+git常用操作：https://wenku.baidu.com/view/624011b1915f804d2a16c119.html
+
+sublime的插件安装：http://blog.csdn.net/friday_sun/article/details/71412454
+
+vue时间格式化插件 ：http://www.cnblogs.com/yesyes/p/6741579.html
+
+所有时间戳的时间格式处理：http://blog.csdn.net/u013217071/article/details/73332765
+
+基于angular2.0的UI框架：https://github.com/IronPans/freeng
+
+电量插件：http://120.26.50.11:8877/index.html#!/bigscreen
+
+移动端事件：http://www.cnblogs.com/shxydx/articles/2856882.html
+
+sass安装 ：https://zhidao.baidu.com/question/1737250138049016267.html
+
+vue接口配置：http://www.tuicool.com/articles/bq6be2u
+
+vue三级联动：https://codepen.io/zhishaofei3-1471324920/pen/KqdGWa
+
+vue中axios请求配置：http://blog.csdn.net/binginsist/article/details/65630547
+
+
+rem适配移动端函数
+$fontSize:64;
+@function px2Rem ($px){
+@return $px/$fontSize + rem;
+}
+
+.box{
+width:px2Rem(100);
+height:px2Rem(100);
+}
+lib-flexible
+原生js移动端适配问题
+
+使用rem适配手机
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+使用rem适配手机
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<script>
+    (function (win, doc) {
+        win.onload = win.onresize = function () {
+            doc.documentElement.style.fontSize = doc.documentElement.clientWidth * 100 / 750 + 'px';
+        };
+    })(window, document);
+</script>
+在设计图为750px的情况下， 1rem = 100px;
+
+<script>
+    (function (doc, win) {
+        var docEl = doc.documentElement,
+            resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+            recalc = function () {
+                var clientWidth = docEl.clientWidth;
+                if (!clientWidth) return;
+                if (clientWidth >= 640) {
+                    docEl.style.fontSize = '100px';
+                } else {
+                    docEl.style.fontSize = 100 * (clientWidth / 640) + 'px';
+                }
+            };
+
+        if (!doc.addEventListener) return;
+        win.addEventListener(resizeEvt, recalc, false);
+        doc.addEventListener('DOMContentLoaded', recalc, false);
+    })(document, window);
+</script>
+在pc端 ，1rem = 100px;
+在移动端： 在设计图为640px的情况下， 1rem = 100
+
+
+
+
+前端问题解决：http://www.qdfuns.com/
+
+更新本地仓库：git pull -u origin 分支名
+
+anguglar的路由配置： http://www.runoob.com/angularjs/angularjs-routing.html
+
+安卓面试题： http://www.cnblogs.com/deman/p/5860976.html
+
+
+js调用手机相册及照片上传功能 ： http://blog.csdn.net/taohai123/article/details/53302405
+
+
+图片预加载问题： http://www.cnblogs.com/lyzg/p/5264028.html
+
+vue中sass安装下载： http://www.cnblogs.com/pearl07/p/6288662.html
+
+vue中http请求： http://www.mamicode.com/info-detail-1190324.html或者：http://www.cnblogs.com/Leo_wl/p/5665545.html
+
+vue目录结构 ：https://www.zhihu.com/question/38213423
+
+
+数组的操作：blog.sina.com.cn/s/blog_4d0309640101iset.html
+
+vue项目打包发布：http://www.tuicool.com/articles/b6BF3ef
+
+
+<script>
+    export default {
+        data() {
+            return {
+                //这里全是数据，参数，接口的参数
+            }
+        },
+        methods {
+            //所有的函数，方法写在此处，
+            add() {},
+                app() {}
+        },
+        method() {
+            //自执行函数，不需要调用，展示数据的时候调方法
+            如： this.app();
+        }
+    }
+</script>
+
+
+
+2017年10月20号 笔记 （我再听到伸缩盒就做50个俯卧撑）
+
+弹性盒的讲解：也就是flexbox，基本用法及属性。
+1、如果块元素内有很多小的有规律的标签需要排版，
+那就多运用css3弹性布局，并且属性加到这些小组件的父元素上。
+2、display:flex;(弹性盒的标志，有兼容性，记得在前面加前缀,)
+3、justify-content:flex-start;水平或竖直排版的顺序，
+flex-start是可替换的。
+4、flex-direction:row;排版的主轴方向，一般是横轴和竖轴，
+默认的是横轴，row可替换。
+5、flex-wrap:wrap;排版是否可转行，nowrap是不可转行。
+6、flex-direction:row;和flex-wrap:wrap;的混合写法，flex-flow:row nowrap;
+7、align-items:center;与主轴的90°的排版方式，center可以替换，
+一般用来居中一个或者多个元素。
+
+
+
+
+2017年10月30日 笔记
+
+scss及ruby配置：http://www.cnblogs.com/cshi/p/5622650.html
+
+Output paths to refresh:
+
+改成这样:$FileNameWithoutExtension$.css:$FileNameWithoutExtension$.css.map
+
+Arguments路径：--no-cache --update --sourcemap --watch $FileName$:$FileParentDir$\css\$FileNameWithoutExtension$.css
+
+谷歌安装firebug:https://getfirebug.com/releases/lite/chrome/
+
+一级路由及嵌套路由的讲解笔记
+
+
+1、 path:一级路由下面的path是绝对路径，为了显示在地址栏，为了我们
+开发人员便于维护
+
+
+2、 name：是为了路由的转而生，但是需求不同，跳转的页面不是一定精确的，
+所以需要给 唯一的id去辨识，然后跳转
+
+
+3、component：是为了把vue组件的绝对路径的变量缓存下来，也是为
+路由跳转而服务
+
+
+4、children：子路由也就是所说的嵌套路由，为了展示出单页应用的这个
+效果而生。
+
+5、v-for的循环是加在谁上面就会循环此元素及所有子元素。
+
+6、$router.options.routes是vue中路由的数组，可以动态循环渲染到
+其他组件中。
+
+移动端去除滚动条样式：.mp_page_body::-webkit-scrollbar{
+display:none;
+}
+
+2017年11月1日 笔记
+vuex讲解
+1、vuex概念：vuex是专门为vue框架而生的一个状态管理插件，只能用在vue框架中。是管理、修改、添加的的应用，对整个vue项目中的数据进行管理、共用。简单的说：就是data中需要共用的属性。
+
+2、vuex中所有的属性都是以对象的方式去声明。
+
+3、action：是行为动作的意思，主要是与视图有联系，也就是用户所触发的动作行为。
+
+4、mutations：是行为动作的意思，与action不同的是，mutations是我们开发人员对数据的一种处理，也就是修改state的数据，写一些方法。
+
+5、state：是数据的存储，我们所要访问的数据对象，也就是我们所有的属性都通过state 访问，应为它是数据公用的一个存储机制。
+
+6、$store.state 基本是固定的，是数据的渲染方式。
+$store.commit()是用户所出发出或者提交做的一些行为动作的写法。
+
+
+
+2017年11月2日 笔记
+
+1、高内聚 低耦合：高度集中管理，依次有条不紊的逻辑执行。
+
+2、this.$store.state 访问数据
+this.$store.getters 访问方法
+
+3、mapState:是简化数据访问的辅助函数，
+
+axios的请求配置: http://www.cnblogs.com/libin-1/p/6607945.html
+
+2017年11月6日 笔记
+
+git讲解：
+概念：版本控制工具，大多数公司用的git做开发，SVN也是版本控制工具，
+但是市场上用的比较少，适合少数人开发比较小的项目。
+功能：
+1、从服务器（远程仓库）上克隆完整的Git仓库（包括代码和版本信息）到
+本地（自己的电脑）上。
+
+2、git可以在一个项目中创建新的分支，可以是多个分支。默认的
+分支是master。
+
+3、功能及命令和主分支的一样。可以进行操作。
+
+4、适合多人开发，速度快，灵敏度高。
+
+缺点：
+1、资料少（学习资料），一般的资料都是英文的。English
+
+2、学习成本比较高，也就是比较难理解，命令多。注意事项多，
+操作较繁琐。
+
+3、保密性差：代码从远程仓库拉下来到本地，所有的版本
+信息、接口、服务器都是能看到的。暴露性比较强。
+
+操作命令：
+
+第一次创建的项目需要放到仓库中需输入：
+git remote add origin 你的仓库地址。
+
+1、git init：初始化本地仓库，也就是暂存区。
+2、git add 你添加的文件或者文件夹之类的。
+3、git add . 是添加所有的something .代表所有的东西；
+4、git commit -m "这里是你的提交描述"
+5、git commit -am "这里是你的提交描述"， -am就是一次性
+提交，不用输入git add 命令了。
+6、git push -u origin master(主分支)/zimogod(开分支) 推送到远程
+仓库。（第一次推送使用此命令） 第一次之后的命令是 git push
+7、git pull 是将远程仓库中的代码更新到本地(也就是暂存区)
+
+8、git log 查看所有人员提交代码的描述信息
+9、git status 查看提交的状态，是否提交成功
+清除git窗口的输入内容命令：clear
+清除终端窗口(cmd)的内容命令：cls
+
+2017年11月7号 笔记
+
+版本回退git reset --hard HEAD^ 只回退工作区中的版本
+
+SHA256:Va3GMxqQ3tTLVUMKv3krxxc5hB0DdBEKyHntPFGETiY 18518517713@163.com
+
+
+2017年11月8日 笔记
+
+@mixin声明混合，可以传递参数，参数名以$符号开始，多个参数以逗号分开，
+也可以给参数设置默认值。声明的@mixin通过@include来调用。
+
+
+
++++-----擅长的技能
+工作经验
+上一家公司地址
+现居住地
+离职多久及原因
+从现居住地到工作地点如何坐车
+
+（1）vue的作者是尤雨溪
+（2）vue.js的优势：
+1.轻量级-就是文件内容小 26k 相比a就要小很多 这一优势的好处在于移动端开发的时候 运行内存可能很小 因此就需要轻量级的框架来进行辅助开发 angular文件过于庞大沉余 因此 不适用于移动端开发 react虽然还可以 在国内使用不多
+2.门槛低 成本低
+门槛低：vue.js是一门对新手程序员十分友好的前端框架 很容易上手
+a.vue.js是针对个人用户开发的前端框架 因此 入门简单 只要有js基础 就很容易上手
+b.vue.js是一个渐进式前端框架 渐进式是和全家桶式对立的一个概念
+安全性更高
+3.vue.js是可以实现跨设备 多平台进行开发的
+weex可以在Android、ios、pc三端进行开发的
+（3）这三者之间是互相有借鉴的
+vue.js借鉴了angularjs的指令模式 (通过数据的改变来操作前端页面的样式)
+借鉴了reactjs的组件化思想（模块化思想）通过不同功能的代码封装 来实现代码复用
+vue.js是一个借鉴了angular 的命令模式和react的组件化思想的综合框架 当然 vue.js也有自己的创新 计算指令computed
+（4）vue.js和jquery之间的区别
+jquery
+1.jq是直接操作dom元素的
+2.jq的链式编程使得代码结构极其混乱 这就给项目的开发和后期维护造成了极大地难度 会导致大量的人力物力和时间的浪费
+vue.js
+1.vue是通过指令来对dom元素进行数据绑定 这样 就可以实现后台数据实时改变前端页面样式
+2.vue借鉴了react的组件化思想这一思想就使前端代码的结构非常清晰 各种功能模块的划分使代码开发和后期维护变得十分简单
+（5）vue.js产生的背景
+1.大量的旧版本浏览器被淘汰
+所谓的旧版本浏览器就是IE6-8
+es5
+ECMAscript5
+object.defineproperty es5新特性
+IE6-8不支持
+这一特性是vue的实现数据双向绑定的核心
+因此 vue不支持IE6-8
+2、前端交互越来越多 功能越来越复杂
+原有的jq逐渐无法满足前端开发的需求 于是 前端流行框架就应运而生了
+（6）vue.js 2014.02 开源的一个前端开发库
+（7）三大框架(vue angular react)的底层实现思想
+mv* *代表不确定
+mvc、mvvm、 mvp（模块化思想）
+
+a. 这些思想开始的时候是后台编程语言使用的框架的思想 后来被前端套用过来 实现了三大框架
+1.m model：（数据模块）操作后台数据的
+2.v view：（视图模块）其实就是呈现给用户的页面 由view模块调用模板 来设置前端结构样式
+3.c controller （控制器）其实 在前端可以理解为前端代码逻辑 起到的作用是承上启下的 controller会从model模块拿数据 并且把这些数据绑定到view模块中的元素上 这样就实现了前后端数据和页面的完美对接
+view传送指令到
+b. mvvm和mvc是一个道理
+vm viewmodel 视图数据模块 是用来沟通前后端的一个模块 用来操作后台获取到的数据
+mvvm是在mvc的基础上对该思想进行升级的一个思想
+
+mvvm实现数据双向绑定的原理是：
+object.defineproperty方法 通过数据劫持 精确地监听前后端数据的改变 从而实现前后端数据的统一
+
+mvvm相比于mvc优势在于更精确 因此 性能更优化
+
+c. mvc实现的数据双向绑定 原理：
+就是既可以实现后台数据变化 影响前端数据一起变化 又可以实现前端数据发生改变 后台数据也相应的进行改变
+
+mvc使用的是watch来监听前端数据的改变 如果前端数据发生改变 就自动把前端数据发送到后台 这就是mvc思想实现双向数据绑定的思路
+
+
+es5
+鲁棒性
+
+（8）一般情况下什么时候使用三大框架 什么情况下使用jquery？
+一般在开发中大型项目的时候以及移动端app的时候使用中大型前端框架 在开发小型项目或个人页面的时候使用jquery
+(中大型项目一般指那些有很多分页 并且页面之间可以相互跳转的前端项目)
+
+原因：
+a.中大型项目页面较多 路由选择较复杂 这样的项目如果使用jquery来开发很容易造成结构混乱 导致开发和后期维护的巨大麻烦
+b.jquery在进行多页面开发的时候 无法实现多页面数据共享 这样就会造成重复数据的多次请求 从而浪费带宽 降低性能
+c.jquery相对来说体积更小
+d.如果是小型页面或个人页面jquery的功能完全能够满足需求 因此就没必要舍近求远
+
+（9）在app上 要实现的是点击按钮更换内容但是页面不跳转叫spa
+single page application
+单 页面 应用
+思路：
+不会跳转页面 也不会依赖缓存后台数据 而是通过监听的方式 来检测前端页面发生的变化 如果变化发生了 就向后台发送ajax请求 并接收后台响应回来的数据 再把新得到的数据渲染到指定页面位置上就实现了单页面应用spa的效果
+好处：
+a.重复的部分信息不用重复加载和渲染 就可以大大提升app的性能 节省带宽
+b.页面不跳转 用户等待时间就更短 并且不依赖缓存数据 会使本地运行内存压力更小
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+11.7
+
+1、spa
+single page application
+原理：基于a标签的锚点来实现单页面数据刷新的
+就是通过监听锚点值的改变 当描点值发生改变的时候 就向后台发送ajax请求 并在前端实现页面数据的局部更新（面试可能会考到）
+2、hashchange 事件 锚点改变事件
+hash 叫做锚点 change 改变
+location.hash 表示当前所在页面的锚点值
+通过事件监听来监听hashchange 当当前锚点值发生改变的时候 就会触发这一事件 进而触发事件监听的代码逻辑里 就可以利用不同的锚点值来确定点击了不同的a标签 再依照点击的a标签 向相对应的后台数据接口发送ajax请求 并将后台响应回来的数据 局部刷新到页面当中
+
+3、vue的双向数据流
+a.从后台到前端的数据流
+通过object.defineproperty来实现的
+是vue实现后端数据流使用的一个es5的新增特性
+object.defineproperty(要进行数据劫持的对象,该对象的指定属性,{空对象
+方法1：function(){}
+方法2：function(){}})
+define property 默认的 属性
+object.defineproperty中的属性是用来定义当前监听的对象的默认属性的
+set表示当我们给obj对象的name属性的值进行设置的时候就会触发set方法函数
+set方法函数有一个形参 这个形参表示新的属性值 会自动获取当前监听的属性的最新改变
+get表示当我们获取obj对象的name属性的时候会触发get方法函数
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+b.从前端到后台的数据流
+我们使用事件监听来监听keyup事件 这样 没一次键盘弹起 就都会触发事件监听 从而实现代码逻辑 这是整个前端数据流的基础
+
+veo实现双向数据绑定的原理就是基于前端数据流和后端数据流来实现的
+
+vue进行开发
+1.引包 vue.js
+2.编写js代码逻辑
+首先 实例化一个vue的对象
+之后在构造函数大vue中传入一个对象类型的实参
+这个对象类型的实参 第一个属性elEl表示element dom元素
+El用来选择dom元素 被选中的dom元素会被 vue文件包初始化管理范围
+
+因此 el实际vue上就是指定vue的管范围的一个属性
+
+在angular中,angular主模块管理的范围可以是任意的元素,甚至body和html也可以作为管理范围,但是,在vue中,是不行的,
+Vue中的主模块的管理范围只能是body中的元素,不能是body本身或html
+
+无论是在angular还是 vue中 所有的框架语法结构的代码都不能写在管理范围外面 否则直接原样输出 不会有任何的效果
+
+data属性
+就是vue代码中的所有数据都在data中，现在我们使用的都是前端数据 到工作环境中 data中的数据多数是后台获取的数据
+
+在vue中如果前端想要显示数据 一般写在 {{数据}}
+但是 在很多后台语言中 {{}}是一种表示输出的语法 如果前端这样展示数据 就很容易和后端发生冲突 这样的情况下 vue就退出了v-text和v-html指令
+
+v-text
+<h2 v-text='属性名'></h2>
+在单标签中是无法使用的 只能在双标签中使用 v-html也无法正常使用
+v-html
+就是当需要显示一些要按照html语法格式进行解析数据的时候 就使用这条命令
+
+这两条命令只是单向数据绑定 并非双向绑定 只有后台可以修改前端数据 前端无法影响后台
+
+
+v-text和v-html是在双标签中添加内容
+input这样的单标签 是通过value来显示值的 所以v-text和v-html就无法使用了
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+11.8
+
+1、v-if:
+控制前端数据是否显示的命令 是通过删除和添加对应的元素 来实现元素的添加和删除
+2、v-show
+通过给元素添加display:none属性来实现指定元素的显示和隐藏
+3、v-if和v-show是通过布尔值来进行判断的 如果值是true 就显示指定的元素 如果值是false 就隐藏指定的元素
+4、v-model
+vue中实现双向数据绑定的指令 是vue的灵魂所在 他可以实现前端数据改变同步修改后台数据
+5、v-bind
+是vue中提供的可以进行运算操作的指令 这一条指令可以帮助我们实现在标签中的一些逻辑操作
+语法：在一个标签里面
+<div v-bind:class="isred?'red':'green'"></div>>
+如果在三元表达式中 red和green不加引号表示red和green要在vue的主模块的data数据中查找 如果加上引号 表示直接使用red和green 类名
+6、computed
+vue的计算属性
+这是vue中给我们提供的一种很强大的功能 这种功能可以配合v-model的双向数据绑定来很方便实现一些前后端数据交互的效果 例如电商平台的购物车 就是很好的例子
+在计算属性computed中首先要在主模块中写入一个新的属性叫做computed 值是一个对象 之后在对象中写入属性函数 在函数体内部进行运算操作
+使用中注意：在computed对象中的属性名一定要和html代码结构中传入的变量名一致
+7.监听watch属性
+lodash的-.debounce
+相当于js中的addEventListener 事件监听 但是不同点在于addEventListener是用来监听事件触发的 而watch是用来监听数据改变的
+watch的语法格式是：
+watch：{
+要监听的数据：function（newV，oldV）{
+
+}
+}
+注意：function中的两个形参是有默认顺序的 前者是新值 后者是旧值 触发监听的时机是当要监听的数据发生改变的时候
+8.vue中提供的更简洁的发送ajax请求的方式
+axios
+前提是要先引包 引入axios数据包
+axios.get('url?数据名=数据值').then(function(response（响应）){
+<!-- =后面拼接的字符串 -->
+})
+
+(jquery中的ajax
+在响应成功的回调函数中 形参data就是后台响应回来的数据
+前端可以通过对形参的操作来实现操作后台相应的数据
+后台需要这些数据来实现逻辑)
+
+9、lodash的_.debounce
+是用来实现延时发送请求的
+（延时执行其内部代码的）
+—.debounce(function(){},delayTime)
+有三个参数 前两个必传 第二个参数是延时执行的时间
+因为没有引包 引入一个lodash.js的数据包
+
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+11.9
+
+1、v-bind:class=''
+行内样式的灵活应用
+a.(对象的形式给标签传入类名)
+已有的类名 green size
+v-bind:class='{green:true/false,size:true/false}'
+这里的true或false表示的是指定的属性是否生效
+vue中 v-bind绑定的类名和html的类名是平级的
+b.(通过数组的形式来给对象传入类名)
+v-bind也可以通过数组的形式向class传入类名
+v-bind:class='[数据名1,数据名2...]'
+注意：这里的数据是vue主模块中data中定义的数据 可以通过这种方式来实现对样式的引入
+c.(通过变量的形式来给对象传入类名)
+在使用v-bind的时候也是可以直接传入一个变量名 之后在vue的主模块中的data属性里定义这个变量 就可以使用
+如果想在v-bind中直接使用类名 只要加上引号就可以了
+2、v-if
+v-else
+两者是对立的 相同的判断条件下 v-if和v-else的显示隐藏机制正好相反
+注意：两者之间不能有任何其它标签 否则报错
+v-if可以实现在html行内进行的if条件判断 如果判断条件为真 就显示指定元素 如果条件为假 就隐藏该元素
+
+在vue的指令中 尽量不要直接写v-if 最好使用v-else-if
+最后的v-bind
+v-bind是可以简写的 v-bind:class=''简写:class=''
+3、v-for
+相当于js中的for循环 只不过比js中的for循环更强大 更便捷
+v-for='数组项 in 数组'
+注意：由于v-for是指令 因此也是要用在标签中的
+4、v-on
+是用来给html元素绑定事件的 和js中的on相似 都是用来给元素绑定事件的 不同的是 vue中的v-on是指令 写在元素标签内部 并且事件触发逻辑写在主模块中
+注意事件处理函数写在methods这个对象类型的属性中
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+11.10
+
+1、v-for循环
+可以循环数组 也可以循环对象 可以循环指定内容的数组 也可以循环默认内容的数组
+总结：
+循环数组的时候 在要循环的标签中 写入v-for='数组项 in 数组' 之后在主模块的data属性中定义要循环的数组 最后如果需要指定数据 再把数据写入就可以了
+循环对象
+1.只循环键值
+v-for='对象的键值 in 指定对象'
+2.循环键值和键名
+v-for='(value key) in 指定的对象'
+3.循环键值 键名以及索引
+v-for='(value key index) in 指定的对象'
+
+v-for循环默认值
+v-for也可以用来循环指定的值（数字） 指定的数字是几 就会循环几次
+v-for='当前索引+1 in 数字'
+{{v}}
+2、input中 单选按钮的value是不会显示的 但是可以用来实现数据双向绑定
+3、template是一个前端模板标签 该标签会把内部的所有html代码看作是一整个模板 如果给template标签加上v-if就会显示和隐藏整个模板
+4.es6的方法函数新写法：
+es5：属性名:function(){}
+es6：属性名(){}
+
+es6的新特性
+箭头函数
+let和const关键字
+for of值遍历
+Math Number string object的新API接口 方法
+
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+11.13
+
+filter 过滤器
+按照条件进行选取
+语法格式
+要使用filter的数组，filter(function(形参){筛选条件})
+形参就是使用filter的数组中的数组项
+
+vue中的push变异方法 其实就是原生js中的数组对象的push方法在vue中的使用
+
+思路
+1.给textarea标签添加双向数据绑定
+2.就可以在控制器模块的methods对象中 设定发表按钮的点击事件处理函数 使该函数执行向已有的数组中添加数组项的代码逻辑 数组项的内容就是用户在textarea中输入的字符串
+
+v-for和computed综合运用的思路
+1.给三个单选按钮添加双向数据绑定
+2.通过计算属性来实现点击不同按钮显示不同内容的效果
+3.首先 判断点击的是哪一个按钮 如果是所有人 就表示type的值是all 就返回整个lovers数组
+4.之后判断用户点击的是男生还是女生 这里我们用到了数组对象的filter方法 通过指定筛选条件来实现部分显示lovers数组中的数组项的效果
+注意：this的指向问题
+
+
+pop 删除最后一个数组元素
+shift 删除第一个数组元素
+unshift 数组开头添加 置顶
+switch:
+switch(data){
+case '' :
+
+
+break;
+case'':
+break
+}
+此中 data是变量
+
+datetime-local
+指设置当地时间
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+11.14
+
+1、在vue的包里面有es6语法的解析器 所以一般在没有解析器的环境中 不要使用es6的语法
+2、es6的箭头函数
+语法结构：
+如果只传一个参数 或者不传参数 可以直接 参数名=>返回值
+如果要传两个或更多参数就要加小括号和{}
+（参数1,参数2,....）{es5中的代码逻辑}
+箭头函数的this指向继承自其父级作用域的this指向
+坑：
+a、箭头函数后面不要跟分号
+b、有的时候不在一行会出错
+优点：
+a、简化js代码
+b、可以清楚的搞定this指向问题
+
+call和apply是没有办法改变箭头函数的this指向
+
+在es5中 我们知道只有函数才能划分作用域 但是在es6中不是 es6引入了块级作用域的概念 就是{}就可以用来划分作用域 所以如果在箭头函数中 返回值是一个对象 类似于这种形式 X=>{name:X}就要写成X=>({name:X})的形式 这是为了区分作用域 指明此处的大括号不是用来划分作用域的
+仅仅表示一个对象
+
+
+阻止a标签的默认行为：
+1.<a href="javascript:void(0)">xxx</a>
+点击之后不跳转
+2.<a href="#"></a> 空链（'#' '##'）一般不推荐使用
+3. <a href="www.baidu.com" class="echo"></a>
+var echo=document.querySelector('.echo');
+echo.onclick=function(){
+return false
+}
+在a标签的事件处理函数中写入return false 就可以实现阻止默认行为的
+4.text.onclick=function(e){
+e.preventDefault()
+}
+通过利用a标签的事件对象的一种es5中的新增特性.preventDefault属性来实现阻止a标签默认跳转行为
+
+
+
+vue中事件对象的修饰符
+在表单form标签中的按钮 被点击的时候 会触发默认刷新页面的行为 如果想要阻止默认行为的触发 return false是不行的 必须使用事件对象preventDefault()属性才可以解决
+
+vue中给我们提供的事件对象修饰符 可以帮助我们解决阻止默认行为的问题：
+v-on:click.prevent.stop='haha(参数)'
+
+
+$event 事件对象标准写法
+
+
+v-on:事件名=‘事件处理函数(实参)’
+@事件名=‘事件处理函数(实参)’
+
+事件对象修饰符once是用来控制事件执行一次的修饰符 有once修饰符的事件只执行一次
+
+
+事件对象修饰符
+.prevent 阻止所有行为
+.stop 阻止冒泡
+.once 只执行一次
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+11.15
+
+1、键盘修饰符
+指用户可以通过这种修饰符来指定特定的按键触发键盘事件
+键盘修饰符可以写关键词也可以写键盘码
+enter 13
+space $20/32
+ESC 27
+up 38
+down 40
+left 37
+right 39
+ctrl 17
+backspace 8
+
+.ctrl修饰符
+在使用的时候要注意如果只按下ctrl键是没有效果的 需要按住ctrl之后再按其他字母键 （有些浏览器默认操作无法使用）
+
+鼠标修饰符
+右键
+当在页面中点击右键的时候 会弹出菜单 这是浏览器的默认行为 如果想要使用右键进行操作的话 就需要阻止默认行为 并且给默认行为绑定新的事件处理函数
+处理方法：
+.contextmenu.prevent='函数名'
+.oncontextmenu='return false'
+
+
+1、在vue中 箭头函数不能直接写在methods里面 可以写在methods中的函数作用域里面 箭头函数可以写在原生js中
+2、vue组件
+vue是一个博彩众长的框架
+吸收了reat的组件化思想
+组件化思想
+在框架中 一种类似于函数封装的思想被称为组件化思想 就是把相同的功能的一段代码封装成一个组件 当需要使用这个组件的时候 直接将组件引入就可以了
+
+3、angular中管类似于new vue这种实例化出来的对象叫做主模块
+vue中 new vue实例化出来的对象叫做根组件
+
+根组件也是有template（模板）属性的 只不过vue中默认根组件的模板就是指定的控制范围内的html代码
+
+在根组件中 必须有一个唯一的父级元素 这个父级元素中可以添加任意的子元素 但是如果父级元素同级出现并列的元素 vue就会报错
+
+4、子组件：
+全局组件 使用方法
+Vue.component('指定的组件名',{template:'模板html文件'})
+
+除了在根组件中 模板内容会被默认是指定作用范围内的html文本 在子组件中 模板必须通过template属性来指定
+而和根组件不同的是 子组件中不需要写el属性 也就是说不需要指定作用范围
+在使用全局组件的时候 直接在根组件作用范围内写入这样的标签就可以了
+<全局组件名></全局组件名>
+全局组件必须要定义在根组件的前面 否则会报错 找不到当前使用的组件
+
+在引用多个组件的时候 可以实现多个h1同时实现 是因为每一个组件都有自己的模板 并不是在组件中可以多次使用h1
+
+5、局部组件
+在根组件中定义components属性 在该属性中添加局部组件
+components:{
+指定组件名:{
+template:'模板文本',
+data:{},
+methods:{}
+}
+}
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+11.16
+
+1、在全局组件中 data部分应该写成函数的形式：在函数中通过返回值来返回一个对象 对象就是我们先前data中的对象
+data:function(){
+return {
+lovers:[],
+type:''
+}
+}
+
+总结：在全局组件中 控制范围是template模板中的根元素root 就是最外面包裹的元素
+全局组件和根组件之间的关系是父组件和子组件之间的关系
+2、在全局组件中 template模板是可以单另出来写的
+<script type='text/x-template'>
+    ul div ...
+  </script>
+在使用script标签的时候 我们实际上是把标签内部的代码文本当做js文件来解析 而如果使用div标签 就是当做html文本来进行解析
+3、每一个全局组件都应该有自己独有的模板和数据 （注：共有的数据和模板除外）
+应该把数据写在组件内部
+4、自定义属性、
+在子组件的模板中我们会写入一些属性 之后在子组件中写入props属性 这一属性可以是数组 如以下形式props:['属性1','属性2'] 在引入组件的时候 在组件标签中写入要使用的属性 并给属性赋值
+
+注意：在使用属性的时候要注意 属性的值是否是字符串类型 如果是字符串类型 就不用在属性名前面加冒号 如果不是字符串类型 就要在前面加冒号
+5、父组件向子组件传数据
+就是父组件通过自定义属性 将自身内部的值传递给子组件
+主要的思路是在子组件模板中拿不到父组件中的data数据
+但是如果通过自定义属性 就可以使子组件在父组件管理范围内去拿父组件的数据 这样就能拿得到了 props ...属性的声明
+
+为什么可以在子组件的属性中拿到lovers数组
+因为根组件是所有子组件（全局组件、局部组件）的父组件 他们之间的关系很类似于对象和原型 所以 当子组件的属性需要数据的时候就会在自身中查找指定的属性 如果有 就使用 如果没有 就在其父组件中查找
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------耳力
+11.17
+
+1、自定义属性的值类型的验证
+在使用自定义属性的时候 可以有以下的书写方式
+props:{
+自定义属性名:{
+type:js数据类型(首字母大写)/[js数据类型1,js数据类型2]
+}
+}
+这种书写方式就是自定义属性的验证
+当然也可以使用数组进行验证 好处是可以兼容多个数据类型的属性值
+
+在属性对象的书写方式中 我们可以给一个属性指定默认值
+props:{
+属性名:{
+type:
+default:属性值
+}
+}
+设置必须属性：
+首先 在自定义属性中设置相关的数据类型
+props:{
+属性名1:{
+type:
+default:
+required:true
+}
+}
+required:true表示当前自定义属性必须手动传值
+
+在使用复杂类型 例如数组类型来给自定义属性进行传值的时候要注意 必须使用函数的返回值形式来给属性传默认值否则报错 有坑
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+11.20
+自定义事件
+$emit
+用来实现自定义事件的一个方法和自定义属性的用法类似 是组件对象的方法，
+
+1.首先在子组件的模板中绑定指定事件
+2.在子组件中定义事件处理函数 函数的内容是this.$emit('自定义事件名称')
+3.在子组件调用的时候 可以使用自定义事件 但是要给自定义事件传入事件处理函数
+4.再根组件中定义自定义指令的事件处理函数
+
+$emit('increment1',[12,'kkk'])触发自定义事件increment1(或者函数名)，[]为参数
+
+slot
+数据分配
+在子组件模板中 定义slot标签 并在该标签中写入内容 那么 当在根组件控制范围中调用子组件的时候 如果不传入内容 就会显示slot标签中原有的内容 如果传入内容 就会显示传入的内容
+另外 slot也可以在子组件的模板中定义多个slot标签 通过name值来进行区分即可 如果需要使用 在子组件调用的时候 在子组件中写入想使用的标签 并通过slot属性来指定使用哪一个slot标签（属性值是slot标签的name值）
+slot好处在于可以配合bootstrap使用
+slot在使用的时候 结构是按照子组件模板中定义的结构来排列的 只有slot值相同的标签 才会按照html文本中的顺序进行排列
+
+:is 属性是用来实现组件之间的切换的 可以通过赋值的方式来实现组件之间的切换的 :is的值是哪一个组件就显示哪一个组件
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+vue动画中动画执行的六个时间节点：
+动画名叫v
+动画进入过程：
+1.v-enter 开始进入
+2.v-enter-active 正在进入
+3.v-enter-to 进入完毕
+动画退出过程：
+1.v-leave 开始离开
+2.v-leave-active 正在离开
+3.v-leave-to 离开完毕
+
+vue动画的具体使用方法：
+给要添加过度的元素或组件包裹上一个transition标签 并且在transtion标签中写入name属性 name属性的值 就是过渡动画的名称 之后就可以直接在style标签中编写css代码 通过对六种时间节点上的样式进行定义 实现css3的过渡效果 这种过渡最后会回到初始的效果
+例如例子中改变的字体颜色等最后都会回到初始状态
+
+
+animata.css
+过渡动画库
+使用方法：
+1.首先 在html文件中引入animate库的包
+2.之后 在需要使用过渡样式的元素中添加animated类名
+3.如果想实现无限循环 就要再加上infinite类名
+4.最后 想要实现什么样式的过渡 就再添加上什么类名就可以了（这些类名可以直接在animate的github官网上进行查找）
+5.注意：使用这种类来进行过度的元素 一定要是块级元素
+
+node.js npm
+npm包管理工具(在npm上可以下载包)包就是文件夹 但是npm是一个服务器在国外的网站 因此有的时候 下载速度会很慢大智大慧的淘宝就编辑了一份镜像文件 cnpm
+Bootcdn(可以搜到一切想要的包)
+npm包管理工具()
+
+
+node -v
+npm -v
+cnpm -v
+cnpm install vue/...
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+11.22
+npm install velocity-animate
+下载velocity的git指令
+
+局部自定义指令
+(1).在根组件中 写入directives属性 （是一个对象类型）
+(2).在directives属性中写入指令名
+directives:{
+指令名：{
+}
+}
+(3).在自定义指令中写入bind或update 这两者是用来定义指令的触发方式的 bind是在指令绑定到元素上的时候 就会触发该指令 update是在元素的值发生改变的时候才会触发该指令
+directives:{
+指令名：{
+bind/update:function(){}
+}
+}
+(4).bind/update函数中可以传入两个参数 el bind。el表示使用当前指令的元素对象 bind表示当前指令的指令对象
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+11.23
+vue-router 使用方法 官网
+
+vue-cli 前端脚手架
+是命令行开发工具 是通过命令行的形式实现vue框架开发项目的目的的前端脚手架
+安装方式
+npm/cnpm install -g vue-cli
+注：-g表示全局安装 是可选项 可写可不写 写了全局安装 会安装在c盘目录下的管理员文件夹下 appdata文件夹下（具体路径看提示信息）我的提示信息 C:\Users\Administrator\AppData\Roaming\npm\node_modules\vue-cli_tmp
+如果不写-g表示局部安装 就会安装在当前文件夹下
+gulp 项目打包工具
+webpack 项目打包工具
+安装方式
+局部安装 npm install --save-dev webpack
+全局安装 npm install --save-dev -g webpack
+注意：在安装webpack的过程中 由于要下载很多的包文件 就可能导致对网速的要求比较高 在这个时候 可以选用cnpm来进行安装（cnpm也有坑 因此用cnpm报错 就用npm）
+提示信息：安装vue-cli的时候提示信息第一行就是这句话 意思是提示用户正在下载vue-cli并将下载的指定目录显示给用户
+
+
+
+npm install --save-dev webpack
+
+> uglifyjs-webpack-plugin@0.4.6 postinstall C:\Users\Administrator\Desktop\下载插件\node_modules\uglifyjs-webpack-plugin
+> node lib/post_install.js
+
+npm WARN saveError ENOENT: no such file or directory, open 'C:\Users\Administrator\Desktop\下载插件\package.json'
+npm WARN enoent ENOENT: no such file or directory, open 'C:\Users\Administrator\Desktop\下载插件\package.json'
+npm WARN 下载插件 No description
+npm WARN 下载插件 No repository field.
+npm WARN 下载插件 No README data
+npm WARN 下载插件 No license field.
+npm WARN optional SKIPPING OPTIONAL DEPENDENCY: fsevents@1.1.3 (node_modules\fsevents):
+npm WARN notsup SKIPPING OPTIONAL DEPENDENCY: Unsupported platform for fsevents@1.1.3: wanted {"os":"darwin","arch":"any"}rch":"x64"})
+
++ webpack@3.8.1
+表示当前安装的webpack的版本号
+added 366 packages in 165.832s
+已经安装了366个包 在165.832秒
+
+初始化一个vue项目
+vue init 打包工具名称 项目名称
+
+
+初始化vue命令行项目的提示信息
+1） Project name (echo)
+翻译 项目 名称
+如果之前定义的项目名称不需要修改 直接回车 如果需要修改 在后面输入要修改的名称
+注意 项目名称不能包含大写字母
+2）项目 描述
+不改回车
+3）作者
+4）install vu-router？（y/n）
+安装 vue-router？
+如果想要安装vue-router插件 就在后面写上Y 不安装写n
+5）use Eslint to lint your code?(Y/n)
+使用eslint（es6中的语法检测工具）
+6）setup unit tests（Y/n）
+设置 代码验证工具
+一般不设置 选择n
+7）setup eze tests with Nightwatch？（y/n）
+设置代码选择工具 一般n
+8)cd echo 进入项目目录
+npm install 安装项目依赖文件
+npm run dev 运行当前默认项目代码
+提示 按提示操作
+
+description 描述说明
+dependencies 依赖文件
+
+总结：前端安装vue框架的脚手架方法：
+1.安装vue-cli
+2.安装打包工具（一般现在流行的打包工具是webpack 因此我们也使用webpack）
+3.通过vue init 打包工具名 项目名称 命令 初始化vue项目并进行相关配置
+4.在配置完成之后 会有提示信息
+cd echo 进入项目目录
+npm install 安装项目依赖文件
+npm run dev 运行当前默认项目代码
+5.npm run dev 运行当前默认项目代码这条指令之后如果成功 会返回一条信息提示
+
+your application is running here
+你的 项目应用 正在运行 在这里
+http://localhost:8080
+项目运行的地址
+
+
+
+
+简历重点
+1.技能描述
+a.全面 技术点全面
+b.精炼 各项技术之间没有重复
+c.准确 技术描述及掌握程度上要准确
+1）掌握程度：
+1.了解:听说过这项技术 有很浅的了解
+2.熟悉：使用过该技术并能上手开发
+3.熟练掌握并应用
+4.精通：对该技术有长时间的使用经验 并且理解技术底层的实现思路和原理
+2.工作经历
+a.时间：三年
+b.两家公司(第一家公司一年 第二家公司两年)
+c.在公司中负责的工作
+1）工作描述：跟UI设计师协同完成前端页面样式
+与后台程序员共同完成接口对接 实现前后台交互
+使用。。相关技术实现页面布局和数据交互
+协助同事共同完成项目开发
+3.项目经验
+a.书写原则：
+按年限来写项目经验 一般是每一年写两个项目
+因此三年工作经验6-7个项目
+b.每一个项目都要有突出 有侧重 例如：项目一：是突出html css静态布局的项目；
+项目二：ajax前后端数据交互的
+项目三： h5 c3移动端响应式项目
+项目四： 面向对象项目
+项目五： vue项目
+项目六： vue项目
+精炼：各个项目之间不要重复 突出的技术点只要出现一次就可以了
+有突出 有侧重 各个项目突出点不同 要有所体现
+c.每一个项目中 对技术点的展示要注意 一搬写6-7点 其中有3-4个是亮点（就是要突出的技术的技术点） 其余的是非亮点（不需要在当前项目中突出的技术点）
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+框架模式：
+框架模式是管理和组织代码的学问
+(1)MVC是最常见的软件架构之一，业界广泛应用；
+MVC分为三部分，view(用户界面|视图DOM) Contoller(业务逻辑) Model(数据模型即javascript对象);
+说明：view传送指令到controller
+controller完成业务逻辑，model改变状态
+Model将新的数据发送到view，用户得到反馈；
+
+特点:所有的通信都是单向的
+互动模式：
+接受用户指令时，MVC分为两部分，一种是通过View接受指令，传递给controller:另一种是直接通过controller接受指令;
+(2)MVP
+MVP模式将Controller改名为Presenter,同时改变了通信方向；
+1、各部分之间的通信，都是双向的；
+2、View和Model不发生联系，都是通过presenter传递
+3、view非常薄，不部署任何业务逻辑，没有任何的主动性，而presenter则是所有的逻辑部署都在哪里
+(3)MVVM
+MVVM模式将presenter改名为ViewModel,基本上与MVP模式完全一致。
+view ViewModel Model
+
+唯一的区别是，它采用的是双向绑定，view的变化，自动反映在viewModel；
+
+一、了解Vue
+Vue.js 是什么？
+
+Vue.js（读音 /vju?/, 类似于?view） 是一套构建用户界面的渐进式框架。与其他重量级框架不同的是，Vue 采用自底向上增量开发的设计。Vue 的核心库只关注视图层，并且非常容易学习，非常容易与其它库或已有项目整合。另一方面，Vue 完全有能力驱动采用单文件组件和?Vue
+生态系统支持的库开发的复杂单页应用。
+Vue.js 的目标是通过尽可能简单的 API 实现响应的数据绑定和组合的视图组件。
+
+官网 http://cn.vuejs.org/
+Vue.js CDN：https://unpkg.com/vue/dist/vue.js
+
+NPM版本要高于3.0 查看版本:npm -v
+低的话要升级: cnpm install npm -g
+
+项目构建步骤
+npm install --global vue-cli
+vue init webpack ***
+cd **
+npm install
+npm start ||npm run dev
+
+
+代码初识
+Hello Vue（通过元素选择器绑定数据）
+
+<div id="app">
+    {{ message }}
+</div>
+
+var app = new Vue({
+el: '#app',
+data: {
+message: 'Hello Vue!'
+},
+methods:{
+showMsg:function(){
+alert(this.message)
+}
+})
+学习完其他框架之后再和其他框架作比较?????
+
+
+_________________________________________________________________
+基本用法：
+
+1、v-xxx
+
+2、属性绑定v-bind 缩写 ‘:’
+<a :title='1'></a>
+<a v-bind:href="url"></a>
+<!-- 缩写 -->
+<a :href="url"></a>
+
+3、事件绑定 v-on 缩写 ‘@’
+<a v-on:click="doSomething"></a>
+<!-- 缩写 -->
+<a @click="doSomething"></a>
+
+
+1、模板表达式
+<!-- 流控制也不会生效，请使用三元表达式和逻辑表达式 -->
+{{ if (ok) { return message } }}
+{{ ok&& message}}
+{{ ok?message:’’}}
+{{msg==''?1:2}}
+
+2、html内容 v-html
+
+动态渲染的任意 HTML 可能会非常危险，因为它很容易导致?XSS 攻击。
+请只对可信内容使用 HTML 插值，绝不要对用户提供的内容插值。
+eg:{{htmlstr}}
+htmlstr:"<a href='todolist.html'></a>"
+
+v-cloak，在元素的最外面加v-cloak属性，另外手动的在style中加[v-cloak]{dispaly:none};表示一开始元素信息全部隐藏，等数据解析出来才会显示
+v-html 绑定标签
+v-text, 绑定文本
+v-pre , 不当做数据去解析
+v-if, 对DOM节点的添加和移除(不需要切换的时候用v-if,切换的时候消耗性能)
+v-show, DOM的显示和隐藏(频繁的切换，初次渲染的时候消耗性能)
+v-model,
+v-for="(item,index) in arr" :key='index'
+:style='obj'||'{}'
+:class="{'box-bg':true}"注意JS中不识别-，记得加引号要
+:class=[red,blue]
+:class='{red:flag}'
+过滤器：
+全局定义
+Vue.filter('reverseMsg',function(value){
+return value.split('').reverse().join('');
+});
+局部定义:
+new Vue({
+el:"#box",
+data:{
+message:"msg"
+},
+filters:{
+//局部定义
+reverseMsg:function(value){
+return value.split('').reverse().join('')
+}
+}
+})
+
+计算属性：computed
+new Vue({
+el:"#box",
+data:{
+message:"msg"
+},
+computed: {
+fullName: function () {
+return this.firstName + ' ' + this.lastName
+}
+}
+});
+
+
+watch（一般执行异步操作或开销较大的操作）:
+new Vue({
+el:"#box",
+data:{
+message:"msg"
+},
+watch: {
+firstName: function (val) {
+this.fullName = val + ' ' + this.lastName
+},
+lastName: function (val) {
+this.fullName = this.firstName + ' ' + val
+}
+}
+})
+
+vue-resource（支持 jsonp）
+cdn:
+<script src="https://cdn.jsdelivr.net/vue.resource/1.3.1/vue-resource.min.js"></script>
+// 基于全局Vue对象使用http
+Vue.http.get('/someUrl').then(successCallback, errorCallback);
+Vue.http.post('/someUrl').then(successCallback, errorCallback);
+
+在一个Vue实例内使用$http
+this.$http.get('/someUrl').then(successCallback, errorCallback);
+this.$http.post('/someUrl').then(successCallback, errorCallback);
+
+axios
+CDN:
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+
+1、事件绑定
+v-on:eventname
+简写
+@eventname
+
+2、阻止冒泡
+e.stopPropagation?e.stopPropagation():e.cancelBubble=true;
+<div id='inner' @click.stop='inner'></div>
+
+阻止默认事件
+e.preventDefault?e.preventDefault():e.returnValue=false;
+<a href="" @click.prevent='aa'> 链接</a>
+
+3、键盘事件
+ev.keyCode
+
+4、通过键值绑定事件
+@keyup.13="show()"
+@keyup.enter="show()"
+
+事件修饰符:
+.stop 阻止事件冒泡
+.prevent 阻止默认事件
+.capture 事件捕获模式
+
+按键修饰符:
+.enter
+.tab
+.delete (捕获 "删除" 和 "退格" 键)
+.esc
+.space
+.up 38
+.down 40
+.left 37
+.right 39
+.ctrl
+.alt
+.shift
+
+生命周期
+Vue实例是一个完整的生命周期，即从开始创建，初始化数据，编译模板，挂载DOM,渲染更新，渲染卸载的过程，成为生命周期。
+创建
+beforeCreate
+created
+
+添加
+beforeMount
+mounted （在这里进行数据请求）
+
+更新
+beforeUpdate
+updated
+
+激活（动态切换的时候会触发）
+activated
+deactivated
+
+销毁 （主动销毁this.$destroy()）
+beforeDestroy
+destroyed
+
+组件与传递数据
+1、组件的定义与注册
+1.通过Vue.extend定义组件
+var Header=Vue.extend({
+template:`<h1>我是header标签</h1>`,
+data(){**************以函数返回的形式
+return {
+
+}
+}
+});
+2.注册组件
+Vue.component(‘v-header’,Header); //组件名不能和html标签名一样
+3.使用组件
+<v-header></v-header>
+
+2、组件的定义和注册2
+//1.直接定义组件
+var Header={
+template:‘<h1>这是一个头部组件</h1>’
+}
+//2.注册组件
+var vm=new Vue({
+el:‘#box’,
+data:{
+name:‘zhangsan’
+},
+components:{
+‘v-header’:Header //在vue内部注册组件
+}
+});
+3、组件的数据和方法
+组件可以自己定义方法和数据（数据必须通过方法返回）
+
+var Header={
+template:'<h1 @click="change()">{{name}}</h1>',
+data:function(){ /*组件里面定义数据的方式*/
+return {
+name:'头部组件',
+}
+},
+methods:{
+hange(){
+this.name='头部组件变';
+alert('this is a Header component run');
+}
+}
+};
+
+4、组件的模板
+1、通过script创建
+<script type="x-template" id="header">
+    <div class="header">
+	        <p>{{msg}}</p>
+	        <button @click="run()">这是一个按钮</button>
+	    </div>
+	</script>
+
+2、或者通过template标签创建
+<template id=" header ">
+    <div class="header">***这里需要有一个根元素
+        <p>{{msg}}</p>
+        <button @click="run()">这是一个按钮</button>
+    </div>
+</template>
+3、使用
+var Header={template:'#header‘}
+
+4、组件标签的内容分发
+1、通过<slot></slot>插入组件标签嵌套的内容
+<div id="box">
+    > <v-header><span slot='text'></span></v-header>
+</div>
+<template id="aaa">
+    <div>
+        <slot name=”text”>
+            这是默认情况下的内容
+        </slot>
+
+    </div>
+</template>
+
+组件通信
+1、父组件控制子组件通信（props）
+1、调用组件
+<v-content>
+    <v-list :list-fata="listData"></v-list>
+</v-content>
+2、在content组件内部通过props接受
+props:['list-data']
+list-data表示标签的属性时不能用驼峰
+3、在模板中用的时候再用驼峰
+<li v-for='(item,index) in listFata'>{{item}}</li>
+
+组件内部接收数据
+props:{
+msg:String, /*msg必须是 字符串类型*/ myNum:{
+type:Number,
+default:101
+}
+}
+
+2、子组件控制父组件通信
+1、调用父组件传递方法给子组件
+
+2、通过事件触发
+
+事件传递
+<v-nav :m="msg" @to-parent="getChildData"></v-nav>
+
+子组件调用
+this.$emit('to-parent',this.msg);
+this.$on('sum',this.fnAdd)
+3、无关系的组件通信
+Var Event = new Vue();
+执行事件触发：
+Event.$emit('sendMsg ',this.msg);
+mounted接受:
+Event.$on(‘sendMsg',function(msg){
+that.text=msg;
+})
+
+
+4、动态组件
+通过component 载入组件is属性是要使用的组件，可以绑定动态数据
+
+<component :is=“‘list1’"></component>
+var vm=new Vue({
+el:'#box',
+data:{
+list:'list1'
+},
+components:{
+'list1':{
+template:'<div>list1组件</div>'
+},
+'list2':{
+template:'<div>list2组件</div>'
+}
+}
+});
+
+通过keep-alive可以监听activated， deactivated的钩子函数,
+在组件list1||list2中执行activated
+<keep-alive>
+    <component :is="list"></component>
+</keep-alive>
+
+自定义指令：
+1、定义指令
+Vue.directive('color-swatch', function (el, binding) {
+el.style.backgroundColor = binding.value
+})
+2、调用指令
+<div class="v" v-color-swatch="'red'">这里的值可以使静态字符串，也可以是变量或对象</div>
+
+el: 指令所绑定的元素，可以用来直接操作 DOM 。
+binding: 一个对象，包含以下属性：
+name: 指令名，不包括?v-?前缀。
+value: 指令的绑定值， 例如：?v-my-directive="1 + 1", value 的值是?2。
+oldValue: 指令绑定的前一个值，仅在?update?和?componentUpdated?钩子中
+arg: 传给指令的参数。例如?v-my-directive:foo， arg 的值是?"foo"。
+
+自定义指令钩子：
+1、bind: 只调用一次，指令第一次绑定到元素时调用，初始化动作。
+
+2、inserted: 被绑定元素插入父节点时调用
+
+3、update: 被绑定元素所在的模板更新时调用
+
+Vue.directive('color-swatch', {
+bind:function (el, bind) {
+el.style.backgroundColor = bind.value
+},
+update:function (el, bind) {
+el.style.backgroundColor = bind.value
+}
+});
+
+
+过渡动画：
+自定义指令钩子
+只使用于出现,消失和列表
+Vue 提供了?transition?的封装组件，在下列情形中，可以给任何元素和组件添加 entering/leaving 过渡
+
+需要给transition 提供一个过渡的name
+<div id="demo">
+    <button v-on:click="show = !show">
+        Toggle
+    </button>
+    <transition name="fade">
+        <p v-if="show“ class=“text”>hello</p>
+</transition>
+</div>
+
+css
+.fade-enter-active, .fade-leave { transition: opacity 2s;}
+.fade-enter, .fade-leave-active {opacity: 2s}
+
+需要通过的4个class控制切换
+
+1、fade-enter: 定义进入过渡的开始状态
+
+2、fade-enter-active: 定义进入过渡的结束状态。
+
+3、fade-leave: 定义离开过渡的开始状态。
+
+4、fade-leave-active: 定义离开过渡的结束状态。
+	.fade-leave-active{
+		opacity:0;
+		transition:all 2s;
+		background:red;
+	}
+	.fade-leave{
+		opacity: 0;	
+		transition:all 2s;
+	}
+	.fade-enter{
+		opacity: 0;
+		transition:all 2s;
+	}
+	.fade-enter-active{
+		transition:all 2s;
+		background:green;
+	}
+
+animate动画
+只需要在v-enter-active和v-leave-active，定义进入和离开的动画
+
+.bounce-enter-active {
+   animation: bounce-in .5s;
+}
+.bounce-leave-active {
+   animation: bounce-out .5s;
+}
+@keyframes bounce-in {
+ }
+@keyframes bounce-out {
+   …
+}
+
+Animate.css
+1、在页面引入animate.css
+2、transition标签上加进入和离开时的class（注意还需要animated ，
+这个是animate.css动画需要的）
+
+<transition
+enter-active-class=" animated tada" leave-active-class="animated bounceOutRight">
+
+            <p v-if="show">hello</p>
+    </transition>
+    3、选择自己想要的动画tada， bounceOutRight
+
+    给一个循环列表加动画
+
+    <transition-group enter-active-class="zoomInLeft animated" leave-active-class="zoomOutRight animated">
+
+        <p v-for='(item,index) in lists' :key='index' v-show='show'></p>
+
+    </transition-group>
+
+    console.log(this.$children[0].con)//如果知道子组件的顺序，直接传递下标即可，然后访问数据
+    console.log(this.$refs.one.$data.con);
+    指定子组件的名称，然后访问数据
+    console.log(this.$parent.aa)
+    //访问父组件的数据
+
+
+    路由：
+    https://unpkg.com/vue-router/dist/vue-router.js
+    1、//定义组件
+    var Home={
+    template:'<h1>我是home</h1>'
+    };
+    var New={
+    template:'<h1>我是New</h1>'
+    };
+    //路由配置
+    var routes=[
+    {path:'/home',component:Home},
+    {path:'/new',component:New},
+    {path:'*',redirect:'/home'}
+    ];
+    //创建vueRouter实例
+    var router=new VueRouter({
+    routes
+    });
+    //把router实例挂载上去
+    new Vue({
+    el:'#app',
+    router,
+    data:{
+
+    },
+    methods:{
+
+    }
+    })
+    //默认选中的有router-link-active类名
+
+    路由的嵌套
+    <router-link to='/new/detail1/age/90'>详情一</router-link>
+    <router-link to='/new/detail2/age/80'>详情二</router-link>
+    <router-link to='/new/detail3/age/70'>详情三</router-link>
+    children:[
+    {path:':aa/age/:age',component:Detail1}
+    ];
+    获取路由的信息
+    $route.params
+
+
+    requestAnimationFrame
+    当我们写window.requestAnimationFrame(回调函数)时，浏览器会在下次重绘前执行回调函数。
+
+    请求数据的时候
+    npm install vue-resouce axios --save
+
+    构建项目中vue-resource用法
+    import vueResource from 'vue-resource'
+    Vue.use(vueResource);
+
+    axios的用法:
+    import axios from 'axios'
+    Vue.$http.axios=axios;
+
+    vue提供了服务器代理的方法
+    访问：http://aura.maizuo.com/api/recommend/home?page=1&num=20
+    设置:在config下面的index.js中proxyTable
+    {
+    '/api':{
+    target:'http://aura.maizuo.com/api',
+    changeOrigin:true,
+    pathRewrite:{
+    '^/api':''
+    }
+    }
+    }
+
+    设置mock访问的路径
+    mock数据的时候需要修改数据build中dev-server.js
+    app.use('/mock',express.static('./mock'))
+
+    详情页的请求
+    http://aura.maizuo.com/api/item/desc?id=15
+    item?id=15
+    详情页访问ID :this.$route.params
+
+
+    ---
+    title: npm相关命令
+    date: 2018-10-11 16:37:15
+    categories: "npm"
+    tags:
+    - 前端
+    - npm
+    ---
+    1. 切换淘宝源
+    ```
+    npm set registry https://registry.npm.taobao.org/
+    ```
+    2. 显示进度条
+    ```
+    npm config set loglevel=http
+    ```
+    3. 一键初始化
+    ```
+    npm init -y 或者 yes // 直接生成package.json
+    ```
+    4. 更新和删除缓存
+    ```
+    npm install -g npm@latest或npm install npm -g #更新
+    npm cache clean --force
+    npm cache clear && rm -rf node_modules && npm install #删除 npm缓存
+    ```
+    5. 安装指定版本
+    ```
+    npm install 包名@版本号
+    npm install vue@2.5.1
+    ```
+    6. 卸载
+    ```
+    npm uninstall 模块：
+    #删除模块，但不删除模块留在 package.json 中的对应信息
+    npm uninstall 模块 --save
+    #删除模块，同时删除模块留在package.json中dependencies下的对应信息
+    npm uninstall 模块 --save-dev
+    #删除模块，同时删除模块留在package.json中devDependencies下的对应信息
+    例子：npm uninstall vue
+    ```
+    解决4058 没有权限问题
+
+    需要删除npmrc文件。
+
+    强调：不是nodejs安装目录npm模块下的那个npmrc文件
+
+    而是在C:\Users\{账户}\下的.npmrc文件
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    ##vue 整个项目的流程
+    一. 基本构建
+    1. npm install vue-cli -g
+    2. vue init webpack vue-book
+    3. 删除无用的样式和文件
+    4. 写readme.md文件
+    5. 创建目录结构
+    - mock 模拟数据
+    - src
+    . base 基础组件
+    . api 代表所有的接口
+    . components 页面级组件
+    . mocks 数据
+    6. http://iconfont.cn 选择需要的图标 生成css链接 引入生成的css
+    7. app.vue 写入 <i class="iconfont icon-shouye"></i> 是否显示图标 就可以查看是否引入正确了
+
+    二 . 创建页面
+    components
+    - home 首页
+    - list 列表
+    - collect 收藏
+    - add 添加
+    - detail 详情
+
+    三. 写路由 router index.js
+    四. app.vue 去除一些默认样式
+    拿出路由组件并写样式
+    激活样式 ：router-link-exact-active router-link-active
+    五.写底部组件 写头部组件 轮播图组件 因为都是公用的所以放在base里面
+    六. 写一个接口
+    七 . 热门图书功能
+    - 先写服务端，确保数据能正常返回
+    - 增加ap方法，实现调取数据功能
+    - 在哪个组件中应用这个api，如果是一个基础组件需要用这些数据，在这个组件的父级中调用这个方法，将数据传递给基础组件
+    >写一个基础组件的流程
+    1. 创建一个.vue文件
+    2. 在需要引用这个组件的父级中引入这个组件
+    3. 在组件中注册
+    4. 以标签的形式引入
+
+    八 . 其他页面
+    九 . 实现一个loading 组件
+    十. 路由缓存
+
+    ```
+    <keep-alive>
+        <router-view v-if="$route.meta.keepAlive"></router-view>
+    </keep-alive>
+    #不缓存的走下面
+    <router-view v- if="!$route.meta.keepAlive"></router-view>
+    # 设置的缓存路由例子 home组件
+    {path: '/home', component: Home,meta:{
+    keepAlive:true
+    }}
+    ```
+    十一. 下拉加载
+    - 默认每次给5条，前端要告诉后台从第几条开始查
+    - page?offset=5
+    - 后台返回要告诉前端是否还有更多数据 has more :false
+    加载更多主要逻辑
+    1. refs 获取滚动的dom元素
+    2. scrollTop+clientHeight+20>scrollHeight
+    3. 满足条件请求加载数据
+
+    十二. 购物车
+    //需要使用vuex,先定义功能，先建一个store或者vuex文件夹
+    1. 建立index.js
+    2. 建立mutations-types
+    `
+    想功能
+    添加购物车
+    删除购物车
+    更改商品数量
+    清空购物车
+    `
+
+    3. 写mutations.js 并导出 在indexjs 导入
+    4. 只要有操作就要更新数组
+    5. logger插件
+
+
+    import logger from 'vuex/dist/logger'
+    export default new Vuex.Store({
+    state,
+    mutations,
+    plugins:[logger()],
+    strict:true})
+    进一步代码改写
+
+    carlist(){
+    return this.$store.state.carlist
+    }
+    ...mapState(['carlist']);
+    getter 相当于组件的computed
+    计算购物车的总数量
+
+
+
+
+
+    十三. 改造路由懒加载
+    ```
+    component: Home 变成
+    component: ()=>import('../../components/Home.vue')
+    ```
+    fork 提交作业的仓库
+    把自己的仓库下载到本地
+    提交作业 先提交到自己的仓库
+    git remote -v 查看当前本地都和那些远程仓库保持了连接
+    pull requset 右边的提交给左边的
+    增加fork 的仓库连接git remote add (名字) 放fork的地址
+    git reomte rm (名字) 可以直接删除
+
+    拉取最新
+    git remote update (名字) 把本地和fork 的最新仓库的通道更新
+    git pull (名字) master
+    添加更新到自己的仓库
+    git add -a
+    git commit -m''备注'
+    每一次推送之前先进行拉取 ： git pull origin master
+    git push origin master 本地代码推送到 远程仓库中
+
+
+
+
+
+
+
+    跨域请求的设置
+
+    首先在项目的config文件夹中，找到index.js,你会看到dev属性下面的proxyTable的值为一个空的对象，即proxyTable:{},咱们要做的就是设置这个对象：
+    proxyTable:{
+    　 '/':{
+    #把 发送到target 域名下的请求都代理到 '/' 下
+    　　target:'http://localhot:3000',
+    //是否改变域名
+    changeOrigin:true,
+    //路径代理
+    pathRewrite:{
+    # 把发送到api的请求都代理到 　　target域下
+    '^/api':'/'
+    }
+    　　}
+
+    }
+    module.exports = merge(prodEnv, {
+    NODE_ENV: '"development"',//开发环境
+    API_HOST:"/api/"
+
+    })
+    dev.env.js设置完毕后，需要重新启动项目，然后就可以调用你设置的域名的数据接口了
+
+    vue-cli 3.0
+    vue.config.js中配置
+
+    const path = require('path')
+
+    const resolve = dir => path.join(__dirname, dir)
+
+    const BASE_URL = process.env.NODE_ENV === 'production' ? '/' : '/'
+
+    module.exports = {
+    lintOnSave: false,
+    baseUrl: BASE_URL,
+    chainWebpack: config => {
+    config.resolve.alias
+    .set('@', resolve('src'))
+    .set('_c', resolve('src/components'))
+    },
+    // 打包时不生成.map文件
+    productionSourceMap: false,
+    devServer: {
+    // proxy: 'http://localhost:3000'
+    }
+    }
+
+
+    拆分的流程 步骤
+    导出 export default
+    引入 用 import 引入
+    挂载 放在 Vuex.Store 实例对象上
+
+    mapMutation 和 mapActions 会把他们里面的方法直接映射到实例上面(this) 可以通过 this.method 直接调用
+    示例：
+    ...
+    mapMutations ={
+    add(state){
+    执行逻辑
+    }
+    }
+
+    跨域
+    1、jsonp
+    2、cors 跨域资源共享
+    3、webpack 代理跨域
+    4、postMessage+iframe
+    5、window.name+iframe
+    6、location.hash+iframe
+    7、ngix 反向代理
+    8、websocket
+    9、document.domain 只适用于一级域名和二级域名的跨域 baidu.com
+    vip.qq.com
+
+
+    import * as Types from '../store/mutations-types.js'
+
+
+
+    http.js==========================
+    import Vue from 'vue';
+    import axios from 'axios';
+    import Router from './router';
+
+    //是axios请求的配置
+    const axiosInstance = axios.create({
+    baseURL:'http://solar.qingzhoudata.com/api',
+    headers:{
+    // 'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8',
+    //上面的一般是post请求的头部内容
+    'Content-Type': 'application/json',
+    //上面的这个请求头部是get请求头部配置内容
+    },
+    withCredentials:true,
+    //是否跨域的处理，true是允许跨域请求，false是不允许跨域请求，默认的是false
+    timeout:5000
+    //请求的过期时间
+    });
+    //此处是后台响应的配置
+    axiosInstance.interceptors.response.use(
+    response => {
+    switch(response.data.code){
+    case 1:
+    const date = JSON.parse(response.data.data);
+    //将数据转化为json数据，JSON.stringify()是将数据转化为字符串
+    case 2:
+    if(response.data.code ===2){
+    alert('肖老头');
+    }
+    //
+    break;//打断当前程序的停留
+    }
+    return response;
+    },
+    error => {
+    if(response.data.errorCode === 0){
+    console.log(error)
+    }
+    return Promise.reject(error);
+    }
+    );
+    export default axiosInstance;
+
+
+    <template>
+        <div class="container">
+            <aside>
+                <ul class="nav_list">
+                    <!--$router.options.routes
+    				 	是对象点出来的 
+    				 	$router就相当于vuex里面的$store 
+    				 	options是webpack里面将$router进行了进一步的嵌套 
+    				 	routes是我们能看到的最初的数组
+    				 	综合写法是{
+    				 		$router:{
+    				 			options:{
+    				 		routes:[
+    				 		//这里是我们的路由地址]
+    				 	}
+    				 }
+    			 }-->
+                    <li v-for="(item,index) in $router.options.routes" :key="index">
+                        <router-link :to="{path:item.path}">
+                            {{ item.alias }}
+                        </router-link>
+                        <ol class="child_alias">
+                            <li v-for="(child,index) in item.children" :key="index">
+                                <router-link :to="{path:item.path+'/'+child.path}">
+                                    {{ child.alias }}
+                                </router-link>
+                            </li>
+                        </ol>
+                    </li>
+                </ul>
+            </aside>
+        </div>
+    </template>
+
+
+
+
+    css初始全局样式===
+    @mixin ling{
+    margin: 0;
+    padding: 0;
+    }
+    @mixin fs($fs){
+    font-size: $fs;
+    }
+    @mixin fudong{
+    overflow: hidden;
+    }
+    @mixin lidd{
+    list-style: none;
+    }
+    @mixin axlx{
+    text-decoration: none;
+    }
+    @mixin wg($width,$height){
+    width: $width;
+    height: $height;
+    }
+    @mixin background($color){
+    background-color: $color;
+    }
+    @mixin color($color){
+    color: $color;
+    }
+    @mixin dingwei($dw,$top,$left){
+    @if($dw == 1){
+    position: relative;
+    }
+    @if($dw == 2){
+    position: absolute;
+
+    @if($left){
+    left: $left;
+    }@else{
+    left: auto;
+    }
+    @if($top){
+    top: $top;
+    }@else{
+    top: auto;
+    }
+    }
+    @if($dw == 3){
+    position: fixed;
+    top: $top;
+    left: $left;
+    }
+    }
+    @mixin ol($color){
+    outline: 1px solid $color;
+    }
+    @mixin fd{
+    overflow: hidden;
+    }
+    @mixin float($fd){
+    @if($fd == 1){
+    float: left;
+    }@else{
+    float: right;
+    }
+    }
+    @mixin bg{
+    background-position:center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    }
+    @mixin ml($ml){
+    margin-left: $ml;
+    }
+    @mixin mt($mt){
+    margin-top: $mt;
+    }
+    @mixin mr($mr){
+    margin-right: $mr;
+    }
+    @mixin mb($mb){
+    margin-bottom:$mb;
+    }
+    @mixin margin($margin){
+    margin:$margin auto;
+    }
+    @mixin ta{
+    text-align: center;
+    }
+    @mixin lh($lh){
+    line-height: $lh;
+    }
+    @mixin keyframes($animationName) {
+    @-webkit-keyframes #{$animationName} {
+    @content;
+    }
+    @-moz-keyframes #{$animationName} {
+    @content;
+    }
+    @-o-keyframes #{$animationName} {
+    @content;
+    }
+    @keyframes #{$animationName} {
+    @content;
+    }
+    }
+
+
+
+    a,
+    article,
+    aside,
+    b,
+    body,
+    button,
+    dd,
+    div,
+    dl,
+    dt,
+    footer,
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    header,
+    i,
+    input,
+    li,
+    nav,
+    p,
+    section,
+    select,
+    span,
+    textarea,
+    ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    font-style: normal;
+    text-decoration: none;
+    border: none;
+    color: #313131;
+    box-sizing: border-box;
+    font-weight: lighter;
+    font-family: Microsoft YaHei;
+    -webkit-tap-highlight-color: transparent
+    }
+
+    a:focus,
+    article:focus,
+    aside:focus,
+    b:focus,
+    body:focus,
+    button:focus,
+    dd:focus,
+    div:focus,
+    dl:focus,
+    dt:focus,
+    footer:focus,
+    h1:focus,
+    h2:focus,
+    h3:focus,
+    h4:focus,
+    h5:focus,
+    header:focus,
+    i:focus,
+    input:focus,
+    li:focus,
+    nav:focus,
+    p:focus,
+    section:focus,
+    select:focus,
+    span:focus,
+    textarea:focus,
+    ul:focus {
+    outline: none
+    }
+
+    body,
+    html {
+    height: 100%;
+    width: 100%
+    }
+
+    body {
+    background: url(/happyfri/static/img/1-1.jpg) no-repeat;
+    background-size: 100% 100%
+    }
+
+    .clear:after {
+    content: "";
+    display: block;
+    clear: both
+    }
+
+    .clear {
+    zoom: 1
+    }
+
+    .back_img {
+    background-repeat: no-repeat;
+    background-size: 100% 100%
+    }
+
+    .margin {
+    margin: 0 auto
+    }
+
+    .left {
+    float: left
+    }
+
+    .right {
+    float: right
+    }
+
+    .hide {
+    display: none
+    }
+
+    .show {
+    display: block
+    }
+
+    zepto css
+
+
+    * {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    box-sizing: border-box;
+    }
+
+    html, body {
+    width: 100%;
+    min-height: 100%;
+    height: 100%;
+    }
+
+    body {
+    position: relative;
+    }
+    .box{
+    width: 600px;
+    height: 600px;
+    background-color: #fff;
+    box-shadow: 0 0 8px #ccc;
+    margin: 20px 10px;
+    position: relative;
+    z-index: -50;
+    }
+    #dlam{
+    position: relative;
+    width: 100%;
+    height: 100%;
+
+    }
+    #dlam .head{
+    position: relative;
+    width: 250px;
+    height: 230px;
+    border: 2px solid #000;
+    border-top-left-radius: 50% 48%;
+    border-top-right-radius: 50% 48%;
+    border-bottom-left-radius: 30% 50%;
+    border-bottom-right-radius: 30% 50%;
+    position: absolute;
+    top: 20px;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    background-color: #059AE2;
+
+    /* background-image: linear-gradient(#000,#000);
+    background-repeat: no-repeat;
+    background-size: 75px 2px;
+    background-position: 20% 35%; */
+
+    }
+    #dlam .face{
+    width: 220px;
+    height: 190px;
+    border: 2px solid #000;
+    border-top-left-radius: 50% 60%;
+    border-top-right-radius: 50% 60%;
+    border-bottom-left-radius: 30% 50%;
+    border-bottom-right-radius: 30% 50%;
+    position: absolute;
+    top: 40px;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    background-color: #fff;
+    }
+    #dlam .eyes{
+    width: 100px;
+    height: 60px;
+    position: absolute;
+    top: 10px;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    }
+    #dlam .left-eye, #dlam .right-eye{
+    width: 50%;
+    height: 100%;
+    border: 2px solid #000;
+    float: left;
+    border-radius: 100%;
+    position: relative;
+    background-color: #fff;
+    }
+    #dlam .left-eye{}
+    #dlam .left-eye:before{
+    content: "";
+    width: 15px;
+    height: 15px;
+    border: 2px solid #000;
+    border-left: none;
+    border-bottom: none;
+    border-radius: 0 50% 0 0;
+    transform:rotate(-45deg);
+    position: absolute;
+    top: 46%;
+    right: 5px;
+    }
+    #dlam .right-eye{}
+    #dlam .right-eye:before{
+    content: "";
+    width: 15px;
+    height: 15px;
+    border: 2px solid #000;
+    border-left: none;
+    border-bottom: none;
+    border-radius: 0 50% 0 0;
+    transform:rotate(-45deg);
+    position: absolute;
+    top: 46%;
+    left: 5px;
+    }
+    #dlam .mouth{
+    width: 180px;
+    height: 70px;
+    border: 2px solid #000;
+    border-top: none;
+    /* border-radius: 0 0 50% 50%/0 0 100% 100%; */
+    border-top-left-radius: 0% 0%;
+    border-top-right-radius: 0% 0%;
+    border-bottom-left-radius: 50% 100%;
+    border-bottom-right-radius: 50% 100%;
+    position: absolute;
+    top: 130px;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    }
+    /*鼻子*/
+    #dlam .mouth:before{
+    content:"";
+    width: 30px;
+    height: 30px;
+    border-radius: 100%;
+    border: 2px solid #000;
+    position: absolute;
+    top: -75px;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    box-shadow: inset 0px -5px 0 10px #DA0227;
+    }
+    #dlam .mouth:after{
+    content:"";
+    width: 0px;
+    height: 115px;
+    border-left: 1px solid #000;
+    position: absolute;
+    top: -45px;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    }
+    #dlam .mustache{
+    width: 75px;
+    height: 1px;
+    background-color: #000;
+    transform: rotate(0deg);
+    position: absolute;
+    /* top: 90px; */
+    top: 118px;
+    left: 35px;
+    box-shadow: 0 1px #555;
+    -webkit-box-reflect:right 28px;
+
+    }
+    #dlam .mustache:before{
+    content: "";
+    width: 75px;
+    height: 1px;
+    background-color: #000;
+    transform: rotate(10deg);
+    position: absolute;
+    top: -28px;
+    left: 0px;
+    box-shadow: 0 1px #555;
+    }
+    #dlam .mustache:after{
+    content: "";
+    width: 80px;
+    height: 1px;
+    background-color: #000;
+    transform: rotate(-20deg);
+    position: absolute;
+    top: 28px;
+    left: -3px;
+    box-shadow: 0 1px #555;
+    }
+    #dlam .body{
+    position: relative;
+    width: 210px;
+    height: 180px;
+    border: 2px solid #000;
+    border-top-left-radius: 40% 80%;
+    border-top-right-radius: 40% 80%;
+    border-bottom-left-radius: 30% 80%;
+    border-bottom-right-radius: 30% 80%;
+    position: absolute;
+    top: 250px;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    background-image: linear-gradient(#000, #000),linear-gradient(#000, #000);
+    background-repeat: no-repeat;
+    background-size: 15px 2px,2px 17px;
+    background-position: center 162px;
+    background-color: #059AE2;
+    z-index: -2;
+    }
+    #dlam .body:before{
+    content: "";
+    width: 150px;
+    height: 145px;
+    border: 2px solid #000;
+    border-radius: 50%/60%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    background-color: #fff;
+    z-index: -2;
+    }
+    #dlam .body:after{
+    content: "";
+    width: 134px;
+    height: 70px;
+    border: 2px solid #000;
+    border-radius: 50%/0 0 100% 100%;
+    position: absolute;
+    top: 62px;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    background-color: #fff;
+    }
+    #dlam .bell{
+    width: 50px;
+    height: 50px;
+    background-color: #756742;
+    border-radius: 100%;
+    border-color: #FEE13E;
+    border-style: solid;
+    border-top-width: 26px;
+    border-bottom-width: 12px;
+    border-left-width: 19px;
+    border-right-width: 19px;
+    box-shadow: 0 0 1px 1px #000,inset 0 0 1px 1px #000;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    }
+    #dlam .bell:before{
+    content: "";
+    height: 5px;
+    background-color: #FCE875;
+    border: 2px solid #000;
+    position: absolute;
+    left: -22px;
+    right: -22px;
+    top: -11px;
+    border-radius: 5px;
+    }
+    #dlam .bell:after{
+    content: "";
+    height: 12px;
+    background-color: #D90222;
+    border: 2px solid #000;
+    border-radius: 5px;
+    position: absolute;
+    left: -60px;
+    right: -60px;
+    top: -30px;
+    z-index: -1;
+    }
+
+    #dlam .foot{
+    height: 40px;
+    width: 220px;
+    position: absolute;
+    top: 430px;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+
+    }
+
+    #dlam .left-foot, #dlam .right-foot{
+    width: 50%;
+    height: 100%;
+    border: 2px solid #000;
+    float: left;
+    }
+    #dlam .left-foot{
+    border-top-left-radius: 40% 80%;
+    border-top-right-radius: 0% 0%;
+    border-bottom-left-radius: 30% 50%;
+    border-bottom-right-radius: 10% 10%;
+    }
+    #dlam .right-foot{
+    border-top-left-radius: 0% 0%;
+    border-top-right-radius: 40% 80%;
+    border-bottom-left-radius: 10% 10%;
+    border-bottom-right-radius: 30% 50%;
+    }
+    #dlam .hand{
+    width: 310px;
+    position: absolute;
+    top: 300px;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    z-index: -3;
+    }
+    #dlam .left-hand, #dlam .right-hand{
+    width: 64px;
+    height: 64px;
+    border: 2px solid #000;
+    border-radius: 100%;
+    position: relative;
+    background-color: #fff;
+    }
+    #dlam .left-hand{
+    float: left;
+    }
+    #dlam .left-hand:before{
+    content: "";
+    width: 50px;
+    height: 130px;
+    border: 1px solid black;
+    border-right: none;
+    border-top: none;
+    border-bottom: none;
+    border-top-left-radius: 30% 50%;
+    border-top-right-radius: 0% 0%;
+    border-bottom-left-radius: 30% 50%;
+    border-bottom-right-radius: 0% 0%;
+    position: absolute;
+    top: -70px;
+    left: 35px;
+    transform:rotate(55deg);
+    background-color: #059AE2;
+    z-index: -3;
+    }
+    #dlam .right-hand{
+    float: right;
+    }
+    #dlam .right-hand:before{
+    content: "";
+    width: 50px;
+    height: 130px;
+    border: 1px solid black;
+    border-left: none;
+    border-top: none;
+    border-bottom: none;
+    border-top-left-radius: 0% 0%;
+    border-top-right-radius: 30% 50%;
+    border-bottom-left-radius: 0% 0%;
+    border-bottom-right-radius: 30% 50%;
+    position: absolute;
+    top: -70px;
+    left: -25px;
+    transform:rotate(-55deg);
+    background-color: #029CE2;
+    z-index: -3;
+    }

@@ -1,0 +1,13 @@
+{
+    "code": 400,
+    "msg": "你请求成功了",
+    "data": {
+        "imgUrl": "http://imgs-qn.iliangcang.com/ware/sowhatimg/ware/orig/2/30/30860.png"
+    },
+    "code": 400,
+    "data": {
+        "imgUrl": "http://imgs-qn.iliangcang.com/ware/sowhatimg/ware/orig/2/30/30860.png"
+    },
+    "activeId": "1",
+    "msg": "你请求成功了"
+}

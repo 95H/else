@@ -1,0 +1,269 @@
+@import "../../static/css/variable.less";
+body {
+  background-color: #f5f5f5;
+}
+
+html {
+  background-color: #f5f5f5;
+}
+
+//loading
+.dn {
+  display: none;
+}
+
+.loadingImg {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 999;
+  display: none;
+  border-radius: 3px;
+  background: rgba(0, 0, 0, .6);
+  text-align: center;
+  color: #ffffff;
+  p {
+    width: 100%;
+    position: absolute;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    -moz-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    -o-transform: translateY(-50%);
+    transform: translateY(-50%);
+    text-align: center;
+  }
+}
+
+.loadingImg img {
+  display: inline-block;
+  position: absolute;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  -o-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+.loadingImg span {
+  display: block;
+  width: 100%;
+  line-height: 15px;
+  font-size: 14px;
+  color: #333;
+  text-align: center;
+}
+
+.paymentWrap {
+  padding-bottom: unit(100/@u, @uu);
+  .courseDetails {
+    background-color: #ffffff;
+    width: 100%;
+    padding-left: unit(20/@u, @uu);
+    margin-bottom: unit(20/@u, @uu);
+    .coursDetailsTitle {
+      width: 100%;
+      border-bottom: 1px solid #f6f6f6;
+      padding: unit(30/@u, @uu) 0;
+      font-size: unit(30/@u, @uu);
+    }
+    .timer {
+      border-top: unit(2/@u, @uu) solid @backgroundColor;
+      height: unit(82/@u, @uu);
+      padding-right: unit(20/@u, @uu);
+      p {
+        text-align: right;
+        font-size: unit(24/@u, @uu);
+        line-height: unit(82/@u, @uu);
+        color: @color9;
+      }
+    }
+    .courseDetailsBody {
+      width: 100%;
+      padding: unit(30/@u, @uu) unit(20/@u, @uu) unit(30/@u, @uu) 0;
+      overflow: hidden;
+      img {
+        float: left;
+        width: unit(286/@u, @uu);
+        border-radius: unit(5/@u, @uu);
+        height: unit(161/@u, @uu);
+      }
+      .courseDetailsRight {
+        padding-left: unit(306/@u, @uu);
+        height: unit(122/@u, @uu);
+        position: relative;
+        left: 0;
+        width: 100%;
+        .courseDetailsRightTop {
+          width: 11rem;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+          font-size: unit(30/@u, @uu);
+          line-height: unit(30/@u, @uu);
+          color: #333333;
+          margin-bottom: unit(20/@u, @uu);
+        }
+        .courseDetailsRightMoney {
+          font-size: unit(34/@u, @uu);
+          line-height: unit(24/@u, @uu);
+          color: @redColor;
+          margin-top: unit(64/@u, @uu);
+        }
+        .courseDetailsRightBottom {
+          font-size: unit(24/@u, @uu);
+          line-height: unit(24/@u, @uu);
+          color: #999999;
+        }
+      }
+    }
+  }
+  .mag160 {
+    margin-top: unit(160/@u, @uu);
+  }
+  .coupon {
+    width: 100%;
+    display: block;
+    color: @color3;
+    background-color: #ffffff;
+    overflow: hidden;
+    margin-top: unit(20/@u, @uu);
+    padding: unit(30/@u, @uu) unit(20/@u, @uu);
+    font-size: unit(30/@u, @uu);
+    line-height: unit(30/@u, @uu);
+    span {
+      float: right;
+    }
+  }
+  .discount {
+    width: 100%;
+    background-color: #ffffff;
+    margin-top: unit(20/@u, @uu);
+    padding: unit(30/@u, @uu) unit(20/@u, @uu);
+    p {
+      line-height: unit(30/@u, @uu);
+      font-size: unit(30/@u, @uu);
+      color: #333333;
+      overflow: hidden;
+      span {
+        float: right;
+        color: #ff544c;
+      }
+    }
+  }
+  .regisfee {
+    width: 100%;
+    background-color: #ffffff;
+    border-top: 1px solid #f5f5f5;
+    padding: unit(30/@u, @uu) unit(20/@u, @uu);
+    p {
+      line-height: unit(30/@u, @uu);
+      font-size: unit(30/@u, @uu);
+      color: #333333;
+      overflow: hidden;
+      span {
+        float: right;
+        color: #ff544c;
+      }
+    }
+  }
+  .xieyi {
+    width: 100%;
+    margin-top: unit(30/@u, @uu);
+    margin-bottom: unit(16/@u, @uu);
+    font-size: unit(26/@u, @uu);
+    text-align: right;
+    .wyxy {
+      color: #999999;
+    }
+    .clickXy {
+      color: #333333;
+    }
+    .xieyi_img {
+      display: inline-block;
+      margin-right: unit(5/@u, @uu);
+      img {
+        width: unit(25/@u, @uu);
+      }
+    }
+    a {
+      color: #333333;
+    }
+  }
+  .paymentMethod {
+    background-color: #ffffff;
+    margin-top: unit(20/@u, @uu);
+    width: 100%;
+    padding: 0 unit(20/@u, @uu);
+    .paymentMethodTitle {
+      padding: unit(30/@u, @uu) 0;
+      border-bottom: 1px solid #f6f6f6;
+      font-size: unit(30/@u, @uu);
+    }
+    .paymentMethodList {
+      width: 100%;
+      overflow: hidden;
+      padding: unit(30/@u, @uu) 0;
+      .wechartImg {
+        float: left;
+        width: 24%;
+      }
+      .wechartClick {
+        width: unit(35/@u, @uu);
+        float: right;
+        margin-top: unit(12.5/@u, @uu);
+      }
+    }
+  }
+  .orderAmount {
+    width: 100%;
+    background-color: #ffffff;
+    margin-top: unit(20/@u, @uu);
+    padding: unit(30/@u, @uu) unit(20/@u, @uu);
+    p {
+      line-height: unit(30/@u, @uu);
+      font-size: unit(30/@u, @uu);
+      color: #333333;
+      overflow: hidden;
+      span {
+        float: right;
+        color: #ff544c;
+      }
+    }
+  }
+  .placeOrder {
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+    height: unit(100/@u, @uu);
+    background-color: #ffffff;
+    z-index: 2000;
+    p {
+      text-align: right;
+      line-height: unit(100/@u, @uu);
+      font-size: unit(29/@u, @uu);
+      width: 100%;
+      .orderMoney {
+        color: #ff544c;
+      }
+      .placeOrderBtn {
+        width: unit(260/@u, @uu);
+        line-height: unit(100/@u, @uu);
+        display: inline-block;
+        text-align: center;
+        margin-left: unit(40/@u, @uu);
+        color: #ffffff;
+        &.select {
+          background-color: @primaryColor;
+        }
+        &.removeSelect {
+          background-color: #999;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,38 @@
+/*
+* 自定义css变量
+*/
+/*单位*/
+/**单位常量使用方法 unit(100/@u,@uu)  nuit: less删除或更换单位行数 nuit(数值,单位)**/
+/*css3*/
+image[lazy=loading] {
+  width: 40px;
+  height: 300px;
+  margin: auto;
+}
+.mint-msgbox {
+  height: 9.25rem;
+  border-radius: 8px;
+}
+.mint-msgbox .mint-msgbox-content {
+  height: 6.0625rem;
+}
+.mint-msgbox .mint-msgbox-content .mint-msgbox-message {
+  margin-top: 1.5625rem;
+  color: #000000;
+  font-size: 1.125rem;
+}
+.mint-msgbox .mint-msgbox-btns {
+  height: 3.125rem;
+  line-height: 3.125rem;
+}
+.mint-msgbox .mint-msgbox-btns .mint-msgbox-btn {
+  font-size: 1.125rem;
+  margin-bottom: -1px;
+}
+.mint-msgbox .mint-msgbox-btns .mint-msgbox-cancel {
+  color: #999;
+}
+.mint-msgbox .mint-msgbox-btns .mint-msgbox-confirm {
+  color: #FFFFFF;
+  background: #38adff;
+}

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>购物车</title>
+    <script src="../vue.js"></script>
+    <style>
+        th{
+            border: 1px solid #000;
+        }
+        td{
+            text-align: center;
+            border: 1px solid #000;
+        }
+    </style>
+</head>
+<body>
+
+<div class="echo">
+<allen :list='goods' @sum='total'></allen>
+总计：{{totalPrice}}元
+</div>
+
+<script type="text/x-handlebars-template" id='hh'>
+    <table>
+        <tr>
+            <th>商品名称</th>
+            <th>商品价格</th>
+            <th>商品数量</th>
+        </tr>
+        <tr v-for='(v,k) in list'>
+            <td>{{v.title}}</td>
+            <td>{{v.price}}</td>
+            <td>
+                <input type="number" v-model="v.num" @keyup.enter='sum'/>
+                <!-- 事件处理函数 和@sum是一个东西-->
+            </td>
+        </tr>
+    </table>
+
+</script>
+
+<script>
+    var a = {
+        template:'#hh',
+        props:['list'],
+        methods:{
+            // 定义事件处理函数
+            sum:function(){
+                console.log(this);
+                //this是局部组件对象Allen
+                this.$emit('sum')
+                // 声明
+            }
+        }
+    }
+    var echo = new Vue({
+        el:'.echo',
+        data:{
+            totalPrice:0,
+            goods:[
+                {title:'iponeX',price:100,num:1},
+                {title:'echo',price:100,num:1}
+            ]
+        },
+        components:{
+          allen:a
+        },
+        mounted:function(){
+//          alert(3) ;
+        },
+        methods:{
+            // 求和
+            total:function(){
+                this.totalPrice=0;
+                this.goods.forEach((v)=>{
+                    this.totalPrice += v.num * v.price      
+                })
+    }
+        }
+    })
+</script>
+</body>
+</html>

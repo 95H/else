@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>导出导入</title>
+    <script src="../../vue.js"></script>
+</head>
+<body>
+
+<div class="echo">
+    <allen :list='news'>
+        <!--一定要在子组件调用的时候，把template作为子组件的直接子元素写入-->
+        <!--在template标签中实现导入-->
+        <template scope='MCY'>
+            <ul>
+                <slot>{{MCY.DJF.title}}</slot>
+            </ul>
+        </template>
+    </allen>
+</div>
+
+<script type="text/x-handlebars-template" id='hh'>
+    <div>
+        <ul>
+            <!--循环到的数据在这里进行导出-->
+            <slot v-for='MCY in list' :field='MCY'></slot>
+        </ul>
+    </div>
+</script>
+
+<script>
+    var a = {
+        template:'#hh',
+        props:['list']
+    }
+    var echo = new Vue({
+        el:'.echo',
+        data:{
+            news:[
+                {title:'周四就要到纪念日了'},
+                {title:'周四就要到纪念日了'},
+                {title:'周四就要到倒数第二天了'},
+                {title:'周四就要到倒数第二天了'}
+            ]
+        },
+        components:{
+            allen:a
+        }
+    })
+</script>
+
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>动画序列控制实现过渡动画</title>
+    <script src="../../vue.js"></script>
+    <script src="velocity.min.js"></script>
+</head>
+<body>
+
+<div class="echo">
+    <button @click='type=!type'>切换</button>
+    <transition name='DJF'>
+        <h1 v-if='type'>哈哈哈哈</h1>
+    </transition>
+</div>
+<script>
+    var echo = new Vue({
+        el:'.echo',
+        data:{
+            type:false
+        }
+    })
+</script>
+<style>
+    .DJF-enter{
+        opacity:0
+    }
+    .DJF-enter-active{
+        animation:show-in 1s;
+        transition:all 1s
+    }
+    .DJF-leave-active{
+        animation:hide-out 1s;
+        transition:all 1s
+    }
+    .DJF-leave-to{
+        opacity:0
+    }
+    @keyframes show-in{
+        0%{
+transform:translate(100px,0)
+        }
+    100%{
+transform:translate(0,0)
+    }
+    }
+    @keyframes hide-out{
+        0%{
+            transform:translate(0,0)
+        }
+        100%{
+            transform:translate(100px,0)
+        }
+    }
+</style>
+</body>
+</html>

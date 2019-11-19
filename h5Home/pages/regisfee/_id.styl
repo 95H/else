@@ -1,0 +1,170 @@
+@import '../../static/css/index'
+
+txt()
+  font-family: 'PingFangSC-Regular'
+
+txt__semibold()
+  font-family: 'PingFangSC-Semibold'
+
+.regisfee {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+
+  // 标题部分
+  .title-section {
+    height: px2rem(350);
+    padding: px2rem(30);
+    color: $color-white;
+    background-image: url('/web/images/regisfee/oval.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    box-sizing: border-box;
+    txt();
+
+    .title-section-inner {
+      box-sizing: border-box;
+      padding-top: px2rem(42);
+      position: relative;
+      top: 0;
+      left: 0;
+      height: 100%;
+    }
+
+    .title-course {
+      // height: px2rem(44);
+      max-height: px2rem(88);
+      line-height: px2rem(44);
+      // margin-top: px2rem(43);
+      margin-bottom: px2rem(26);
+      overflow: hidden;
+      font-size: px2rem(36);
+      txt__semibold();
+    }
+
+    .title-info {
+      display: flex;
+      justify-content: space-between;
+      height: px2rem(50);
+
+      .expire-txt {
+        font-size: px2rem(28);
+        line-height: px2rem(36);
+      }
+
+      .clock-txt {
+        margin-left: px2rem(12);
+      }
+
+      .info-amout {
+        font-size: px2rem(40);
+        line-height: px2rem(50);
+        txt__semibold();
+      }
+    }
+
+    .title-tip {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      font-size: px2rem(24);
+      height: px2rem(40);
+      line-height: px2rem(40);
+      // margin-top: px2rem(78);
+    }
+  }
+
+  // 表单部分
+  .form-section {
+    flex: 1;
+    padding: px2rem(30);
+
+    .row-form {
+      height: px2rem(72);
+      line-height: px2rem(72);
+      padding-left: px2rem(20);
+      border-bottom: 1px solid #f5f5f5;
+      overflow: hidden;
+    }
+
+    .row-form__phone {
+      margin-top: px2rem(52);
+    }
+
+    .row-form__vcode {
+      position: relative;
+      margin-top: px2rem(46);
+    }
+
+    .form-txt {
+      float: left;
+      margin-right: px2rem(16);
+      color: $color-light-grey;
+    }
+
+    .phone-input, .vcode-input {
+      float: left
+      width: px2rem(320)
+      height: px2rem(72)
+      font-size: px2rem(32)
+      max-width: px2rem(400)
+    }
+
+    .vcode-query {
+      position: absolute;
+      top: 0;
+      right: 0;
+      margin-right: px2rem(18);
+      color: #38ADFF;
+      font-size: px2rem(26);
+    }
+
+    .vcode-query--disabled {
+      color: $color-light-grey-s;
+    }
+
+    .form-tip {
+      color: $color-light-grey-s;
+      font-size: px2rem(24);
+      line-height: px2rem(24);
+      margin-top: px2rem(30);
+      padding-left: px2rem(10);
+    }
+
+    .agreement {
+      color: #38ADFF;
+    }
+
+    .agreement:active {
+      color: #551A8B;
+    } 
+  }
+
+  .btn-section {
+    height: px2rem(100);
+    line-height: px2rem(100);
+    text-align: center;
+    color: $color-white;
+    background-color: #38ADFF;
+    txt();
+  }
+
+  .btn-section--disabled {
+    background-color: $color-light-grey-s;
+  }
+
+  .modal-content {
+    padding: px2rem(40) px2rem(80) px2rem(40);
+    background-color: #fff;
+    box-shadow: 0 5px 8px 0 rgba(157, 157, 157, 0.5);
+    border-radius: px2rem(22);
+
+    .txt {
+      color: #333;
+      line-height: px2rem(50);
+      font-size: px2rem(36);
+      text-align: center;
+      txt();
+    }
+  }
+}

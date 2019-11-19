@@ -1,0 +1,313 @@
+<!-- <!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>事件修饰符once</title>
+    <script src="vue.js"></script>
+    <style>
+        ul>li{
+            cursor:pointer;
+        }
+    </style>
+</head>
+<body>
+<div class="echo">
+    <ul>
+        <li v-for="v in lovers" @click.once="hehe('hehe')">
+            {{v.name}}
+        </li>
+    </ul>
+</div>
+<script>
+    var echo = new Vue({
+        el:'.echo',
+        methods:{
+            hehe:(a)=>{
+            console.log(a)
+        }
+        },
+        data:{
+            lovers:[
+                {name:'echo'},
+                {name:'allen'},
+                {name:'brain'},
+                {name:'emily'},
+            ]
+        }
+    })
+</script>
+</body>
+</html>
+
+
+
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="vue.js"></script>
+</head>
+<body>
+    <div class="echo">
+        <div class="allen" @click="haha('haha')">
+            <a href="http//www.baidu.com" @click.prevent.stop="haha('haha')"> 空链 </a>
+        </div>
+    </div>
+
+    <script>
+        var echo = new Vue({
+            el:'.echo',
+            methods:{
+                haha:(a)=>{
+                    alert(a)
+                }
+            }
+        })
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+</head>
+<body>
+<div class="echo">
+  <ul>
+  	<li v-for='v in lovers'>{{v.name}}</li>
+  </ul>
+  <textarea name="echo" id="pl" cols="30" rows="10" v-model='type' @keyup.enter="haha('haha')"></textarea>
+</div>
+ <script src='vue.js'></script>
+ <script>
+  var echo = new Vue({
+  	el:'.echo',
+  	methods:{
+  		haha:function(a){
+  			var b={
+  				name:this.type
+  			}
+  			console.log(a)
+  			this.lovers.push(b);
+  		}
+  	},
+  	data:{
+  		type:'',
+  		lovers:[
+           {name:'echo'},
+           {name:'allen'}
+  		]
+  	}
+  })
+ </script>
+</body>
+</html>
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>键盘修饰符</title>
+    <script src="vue.js"></script>
+</head>
+<body>
+<div class="echo">
+    <ul>
+        <li v-for="v in lovers">{{v.name}}</li>
+    </ul>
+    <textarea name="echo" id="PL" cols="30" rows="10" v-model="type" @keyup.right="haha('haha')"></textarea>
+</div>
+<script>
+    var echo = new Vue({
+        el:'.echo',
+        methods:{
+          haha:function(a){
+            console.log(a)
+            var b = {name:this.type}
+            this.lovers.push(b)
+        }
+        },
+        data:{
+            type:'',
+            lovers:[
+                {name:'echo'},
+                {name:'allen'},
+                {name:'brain'},
+                {name:'emily'},
+            ]
+        }
+    })
+</script>
+</body>
+</html> 
+
+
+
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title> 鼠标修饰符 阻止</title>
+    <script src="vue.js"></script>
+</head>
+<body>
+
+<div class="echo">
+    <ul>
+        <li v-for="v in lovers">
+            {{v.name}}
+        </li>
+    </ul>
+    <textarea name="pl" id="PL" cols="30" rows="10" v-model="type"></textarea>
+    <br/>
+    <button @contextmenu.prevent="haha('heheda')">发表</button> 
+     也可以写成下面形式
+    <button @contextmenu="haha('heheda')" oncontextmenu="return false">发表</button>
+</div>
+<script>
+    var echo = new Vue({
+        el:'.echo',
+        methods:{
+          haha(a){
+              console.log(a);
+                var b = {name:this.type}
+              this.lovers.push(b);
+              console.log(this.lovers);
+          }
+        },
+        data:{
+             
+                type:'',
+                lovers:[
+                    {name:'echo'},
+                    {name:'allen'},
+                    {name:'brain'},
+                    {name:'emily'}
+                ]
+            },
+     })
+</script>
+</body>
+</html> -->
+
+
+
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="vue.js"></script>
+</head>
+<body>
+
+<div class="echo">
+    <input type="text" @keyup.ctrl="echo('echo')"/>
+</div>
+
+<script>
+    var echo = new Vue({
+        el:'.echo',
+        methods:{
+            echo:function(a){
+                var b = (b)=>{
+                    console.log(b)
+                }
+                b(a);
+            }
+        }
+    })
+</script>
+</body>
+</html>
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    var b = (a)=>{
+        console.log(a);
+    }
+    b('hhh')
+</script> 
+</body>
+</html>
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>vue组件</title>
+    <script src="vue.js"></script>
+</head>
+<body>
+<div class="echo">
+    <allen></allen>
+    <brain></brain>
+    <emily></emily>
+</div>
+<script>
+//定义全局组件
+Vue.component('allen',{
+    template:'<input type="text"/>',
+})
+Vue.component('brain',{
+    template:'<div><h1>hahaha</h1><h1>hahaha</h1></div>',
+})
+    var echo = new Vue({
+        el:'.echo',
+//        template:'<div>hahaha<div class="hehe">heheda</div></div>',
+        data:{
+            type:''
+        },
+        //局部组件
+        components:{
+            emily:{
+                template:'<input type="text"/>'
+            }
+        }
+    })
+
+    
+</script>
+</body>
+</html>
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+</html>

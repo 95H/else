@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>手机邮箱注册</title>
+</head>
+<body>
+<div class="echo">
+<template v-if="register=='phone'">手机 <input type="text"/></template>
+<template v-if="register=='email'">邮箱 <input type="text"></template>
+<br>
+<input type="radio" name="choose" value="phone" v-model='register'>手机
+<input type="radio" name="choose" value="email" v-model='register'>邮箱
+</div>
+<script src='vue.min.js'></script>
+	<script>
+   var app = new Vue({
+   el:'.echo',
+   data:{
+    register:'phone',
+   }
+   })
+	</script>
+</body>
+</html>

@@ -1,0 +1,255 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>js操作实现动画</title>
+</head>
+<body>
+	<div class="echo">
+      <button @click='type=!type'>切换</button>
+    1.在transition标签中以事件的形式添加动画控制属性 @... 
+      <transition name='echo' @before-enter='beforenter' @enter='enter' @leave='leave' :css='false'>	
+      	:css false 表示不再解析css 
+      <h1 v-if='type'>哈哈哈</h1></transition>
+	</div>
+	<script src='vue.js'></script>
+	<script src='velocity.min.js'></script>
+	<script>
+new Vue({
+	el:'.echo',
+	data:{
+		type:true,
+	},
+	methods:{
+		beforenter:function(el){
+			el.style.opacity=0
+		},
+		enter:function(el,done){
+		// 2.在事件处理函数中引入el和done形参  el表示使用当前事件的元素 done是用来告知velocity插件当前动画已经结束
+		// 事件处理函数中的代码：Velocity(el,{属性:属性值},{duration:毫秒,complete:done})已经结束了
+         Velocity(el,{opacity:1},{duration:1000,complete:done})
+         // 第二个参数是要控制的属性 duration执行时间 毫秒 complete 告诉插件执行完毕
+		},
+		leave:function(el,done){
+			 Velocity(el,{opacity:0},{duration:1000,complete:done})
+		},
+	}
+})
+	</script>
+</body>
+</html>
+ -->
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>局部自定义指令</title>
+	<script src='vue.js'></script>
+</head>
+<body>
+<div class="echo">
+  <h1 v-star.abc="'green'">haha</h1>
+  <input type="text" v-model='type' v-echo>
+</div>
+	<script>
+new Vue({
+	el:'.echo',
+	data:{
+		type:'love you'
+	},
+	directives:{
+		star:{
+			// 绑定
+			bind:function(el,bind){
+				console.log(el);
+				// <h1>haha</h1>
+				console.log(bind)
+				// {name: "star", rawName: "v-star.abc", value: "green", expression: "'green'", modifiers: {…}, …}
+			}
+		},
+		echo:{
+			// up date日子 update 上传
+			update:function(el,bind){
+              console.log('love you')
+			}
+		}
+	}
+})
+	</script>
+</body>
+</html> -->
+
+
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>变色</title>
+</head>
+<body>
+	<div class="echo">
+	<button @click='ha'>切换</button>
+<h1 v-star="'green'">hh</h1>
+	</div>
+	<script src='vue.js'></script>
+	<script>
+ var echo=new Vue({
+ 	el:'.echo',
+ 	directives:{
+      star:{
+      	bind:function(el,bind){
+      console.log(bind.value)
+      // 默认字体颜色
+      var color=bind.value?bind.value:'red';
+      el.style.cssText='color:'+color;
+      	}
+      }
+ 	},
+ 	methods:{
+ 		ha:function(){
+
+ 		}
+ 	}
+ })
+	</script>
+</body>
+</html> -->
+
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+</head>
+<body>
+<div class="echo">
+   <a href=""></a>
+  <router-link 跟a标签极类似 属性to 
+   <router-link to='/allen'>allen</router-link>		
+   <router-link to='/brain'>brain</router-link>
+   <router-view></router-view>	
+   	此标签里面不需要写任何内容 映射指向  
+</div>
+    <script src='vue.js'></script>
+	<script src='vue-router.js'></script>
+	<script type='text/x-handlebars-template' id="h">
+   <h1>allen</h1>
+	</script>
+	<script type='text/x-handlebars-template' id="hh">
+   <h1>brain</h1>
+	</script>
+	<script>
+	const allen={
+		template:'#h'
+	}
+	const brain={
+		template:'#hh'
+	}
+	// 配置路由映射
+	const route=[
+        {path:'/allen',component:allen},
+        {path:'/brain',component:brain},
+	]
+	// 创建路由对象
+	var routes=new VueRouter({
+		routes:route
+	})
+	// 把创建好的路由对象添加到根组件中的router属性中
+   var echo=new Vue({
+   	el:'.echo',
+     router:routes
+   })
+	</script>
+</body>
+</html> -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<style>
+ *{
+ 	margin: 0;
+ 	padding: 0;
+ 	text-decoration: none;
+ 	font-size: 65px;
+ 	text-align: center;
+ }
+ header{
+ 	width: 100%;
+ 	height: 150px;
+ 	background-color: pink;
+ 	line-height: 150px;
+ }
+ div{
+ 	width: 100%;
+ 	height: 400px;
+ 	background-color: orange;
+ 	line-height: 400px;
+ }
+ footer{
+ 	width: 100%;
+ 	height: 100px;
+ 	background: green;
+ 	line-height: 100px;
+ }
+	</style>
+</head>
+<body>
+<div class="echo">
+ <header>
+    <router-link to='/guo'>水果</router-link>	
+    <router-link to='/dong'>动物</router-link>	
+    <router-link to='/cai'>蔬菜</router-link>	
+ </header>
+ <div>
+   <router-view></router-view>		
+ </div>
+ <footer>版权所有 侵权必究</footer>
+</div>
+	<script src='vue.js'></script>
+	<script src='vue-router.js'></script>
+
+	<script type='text/x-handlebars-template' id="h">
+   <h1>香蕉</h1>
+	</script>
+	<script type='text/x-handlebars-template' id="hh">
+   <h1>小猫</h1>
+	</script>
+	<script type='text/x-handlebars-template' id="hhh">
+   <h1>白菜</h1>
+	</script>
+
+	<script>
+
+const guo={
+	template:'#h'
+}
+const dong={
+	template:'#hh'
+}
+const cai={
+	template:'#hhh'
+}
+
+const route=[
+        {path:'/guo',component:guo},
+        {path:'/dong',component:dong},
+        {path:'/cai',component:cai}
+	]
+
+var routes=new VueRouter({
+		routes:route
+	})
+var echo = new Vue({
+	el:'.echo',
+	router:routes
+})
+	</script>
+</body>
+</html>

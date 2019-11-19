@@ -1,0 +1,53 @@
+<div class="regisfee">
+  <div class="title-section">
+    <div class="title-section-inner">
+      <h4 class="title-course">
+        <span>预付</span>
+        <span style="word-break: break-all">『{{ messageInfo.courseName | subString }}』</span>
+        <span>课程报名费</span>
+      </h4>
+      <div class="title-info">
+        <div class="info-expire">
+          <span class="expire-clock"></span>
+          <div class="expire-txt">
+            <CountDown :timeStamp="messageInfo.expireMsec">
+              <i class="iconfont icon-shijian" style="vertical-align: middle;"></i>
+              <span class="clock-txt">失效时间：</span>
+            </CountDown>
+          </div>
+        </div>
+        <h4 class="info-amout">￥{{ Number(messageInfo.amount || 0).toFixed(2) }}</h4>
+      </div>
+      <p class="title-tip">说明: 继续支付尾款时，会从课程价格中扣除报名费。</p>
+    </div>
+  </div>
+  <div class="form-section">
+    <div class="row-form row-form__phone">
+      <span class="form-txt">手机号:</span>
+      <input type="text" name="phone" class="phone-input" v-model.trim="phoneNumber" />
+    </div>
+    <div class="row-form row-form__vcode">
+      <span class="form-txt">验证码:</span>
+      <input type="text" name="vcode" class="vcode-input" placeholder="请输入验证码" v-model="vcodeValue" maxlength="6" />
+      <span :class="['vcode-query', vcodeDisabled ? 'vcode-query--disabled' : '']" @click="queryVcode">{{vcodeTxt}}</span>
+    </div>
+    <p class="form-tip">
+      <span>* 未注册手机验证后，自动登录，注册即同意</span>
+      <a class="agreement" href="/loginRegister/userAgreement">《用户协议》</a>
+    </p>
+  </div>
+  <div :class="['btn-section', paying ? 'btn-section--disabled' : '']">
+    <p v-if="paying">
+      支付中...
+    </p>
+    <p v-else @click="payRegisFee" v-zg="['H5_交报名费页_点击支付报名费', { '课程ID': messageInfo.courseId, '课程类型': messageInfo.courseType, '课程名称': messageInfo.courseName, '报名费金额': messageInfo.amount }]">
+      支付预报名费
+    </p>
+  </div>
+
+  <SimpleModal :isShow="isShowModal" @close="modalClose">
+    <div class="modal-content">
+      <p class="txt">{{modalTxt}}</p>
+    </div>
+  </SimpleModal>
+</div>

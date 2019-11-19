@@ -1,0 +1,464 @@
+txt()
+  font-family: "PingFangSC-Regular"
+
+txt__gray()
+  color: $color-dark-grey
+  txt()
+
+txt__black()
+  color: $color-black
+  txt()
+
+txt__white()
+  color: $color-white
+  txt()
+
+.page-live.landscape
+  .video-container
+    flex: 1
+    margin-top: 0
+
+  .chatroom-container
+    display: none
+
+  .input-container
+    display: none
+
+
+.page-live
+  .video-zoom
+    position: absolute
+    bottom: px2rem(24)
+    right: px2rem(20)
+    width: px2rem(66)
+    height: px2rem(66)
+    background-repeat: no-repeat
+    background-size: 100%
+    z-index: 500
+
+.page-live.pagezoomin
+  .video-zoom
+    background-image: url('~assets/live/zoomout.png')
+    @extend .page-live .video-zoom
+
+  // .chatroom-container
+  //   display: none
+
+  // .input-container
+  //   display: none
+
+.page-live.pagezoomout
+  .video-zoom
+    background-image: url('~assets/live/zoomin.png')
+    @extend .page-live .video-zoom
+
+.page-live
+  width: 100%
+  height: 100%
+  display: flex
+  padding-bottom: px2rem(104)
+  flex-direction: column
+  flex-wrap: nowrap
+  // overflow: hidden
+
+  // 头部右侧 >>>
+  .slot-right
+    display: flex
+    align-items: center
+
+  .person-img
+    display: inline-block
+    size: px2rem(18) px2rem(26)
+    background: url('~assets/live/person.png') no-repeat
+    background-size: 100%
+    margin-right: px2rem(16)
+
+  .person-num
+    font-size: px2rem(30)
+  // 头部右侧 <<<
+
+  .video-container
+    position: relative
+    width: 100%
+    height: px2rem(422)
+    background-color: #fff
+    margin-top: px2rem(100)
+    background-color: $color-black
+
+  .video-abstatus
+    display: flex
+    position: absolute
+    top: 0
+    left: 0
+    width: 100%
+    height: 100%
+    justify-content: center
+    align-items: center
+    color: $color-white
+    z-index: 500
+
+  .video-inner
+    width: 100%
+    height: 100%
+
+
+  .video-live
+    width: 100%
+    height: 100%
+
+  .video-bg
+    position: absolute
+    top: 0
+    left: 0
+    display: flex
+    justify-content: center
+    align-items: center
+    width: 100%
+    height: px2rem(422)
+    background-image: url('~assets/live/bg_video.png')
+    background-repeat: no-repeat
+    background-size: 100% 100%
+
+    .video-btn
+      display: inline-block
+      width: px2rem(110)
+      height: px2rem(110)
+      background-image: url('~assets/live/btn_video_play.png')
+      background-repeat: no-repeat
+      background-size: 100% 100%
+
+  .chatroom-container
+    position: relative
+    width: 100%
+    flex: 1
+    display: flex
+    flex-direction: column
+
+    .titles
+      align-items: center
+
+    .room-title
+      position: relative
+      float: left
+      width: 50%
+      height: px2rem(87)
+      text-align: center
+      line-height: px2rem(87)
+      font-size: px2rem(30)
+      txt__gray()
+
+      .showTalk,.showQuestion
+        color: #466DE2
+        padding-bottom: px2rem(20)
+        border-bottom: 3px solid #466DE2
+
+      .showTalk::after,.showQuestion::after
+        content: ""
+        display: block
+        width: 0
+        height: 0
+        background-color: #FFF
+
+      .newMessage::after
+        content: ""
+        display: block
+        width: px2rem(10)
+        height: px2rem(10)
+        background-color: #FE4A41
+        border-radius: 50%
+        position: absolute
+        top: px2rem(36)
+        right: px2rem(110)
+
+    .hint-box
+      padding: 0 px2rem(30)
+
+    .hint-box .hint-text
+      position: relative
+      width: 100%
+      background: rgba(255,85,69,0.10)
+      border: 1px solid rgba(255,85,69,0.40)
+      border-radius: px2rem(14)
+      padding: px2rem(16) px2rem(22)
+      margin-top: px2rem(16)
+      font-size: px2rem(24)
+      color: #666666
+      line-height: px2rem(33)
+      p
+        position:absolute
+        right: px2rem(-26)
+        top: px2rem(-26)
+        width: px2rem(80)
+        height: 70%
+        z-index: 9
+      p .close-hint
+        position:absolute
+        right: px2rem(14)
+        top: px2rem(14)
+        font-size: px2rem(30)
+        text-align: center
+        color: #FF5545
+        border-radius: 50%
+        z-index: 8
+
+
+    // 聊天内容部分 >>>
+    .mg20-box{
+      width: 100%
+      height: px2rem(20)
+      background: #f5f5f5
+    }
+    .content-container
+      flex: 1
+      background-color: #FFF
+      overflow: hidden
+      padding-top: px2rem(15)
+
+      .message-piece
+        padding: px2rem(15) px2rem(30)
+        margin-bottom: px2rem(10)
+
+      .message-other-piece
+        display: flex
+        @extend .page-live .chatroom-container .content-container .message-piece
+
+      .message-self-piece
+        display: flex
+        flex-direction: row-reverse
+        @extend .page-live .chatroom-container .content-container .message-piece
+
+      .avatar
+        position: relative
+        width: px2rem(66)
+        height: px2rem(66)
+        overflow: hidden
+
+      .avatar-other
+        margin-right: px2rem(20)
+        @extend .page-live .chatroom-container .content-container .avatar
+
+      .avatar-self
+        margin-left: px2rem(20)
+        @extend .page-live .chatroom-container .content-container .avatar
+
+      .img-avatar
+        position: absolute
+        top: 0
+        left: 0
+        right: 0
+        bottom: 0
+        max-width: 100%
+
+      .detail
+        display: flex
+        flex-direction: column
+        max-width: px2rem(560)
+
+      .info
+        display: flex
+        height: px2rem(24)
+        line-height: px2rem(24)
+        font-size: px2rem(24)
+        margin-bottom: px2rem(10)
+        float: right
+
+        .nickname
+          margin-right: px2rem(14)
+          font-size: px2rem(24)
+          txt__black()
+
+        .sendtime
+          font-size: px2rem(24)
+          txt__black()
+
+      .info-self
+        justify-content: flex-end
+        @extend .page-live .chatroom-container .content-container .info
+
+      .message
+        position: relative
+        line-height: px2rem(42)
+        padding: px2rem(15) px2rem(20)
+        border-radius: px2rem(14)
+        word-break:break-all
+        // word-wrap: break-word
+        background-color: #f5f5f5
+        txt__gray()
+
+      .message-self
+        color: $color-white
+        background-color: #466de2
+        @extend .page-live .chatroom-container .content-container .message
+
+      .arrow
+        width: px2rem(18)
+        height: px2rem(18)
+        transform: rotate(45deg)
+        transform-origin: 50% 50%
+
+      .arrow-left
+        position: absolute
+        top: px2rem(18)
+        left: px2rem(-6)
+        background-color: #f5f5f5
+        @extend .page-live .chatroom-container .content-container .arrow
+
+      .arrow-right
+        position: absolute
+        top: px2rem(21)
+        right: px2rem(-6)
+        background-color: #466de2
+        @extend .page-live .chatroom-container .content-container .arrow
+
+    // 聊天内容部分 <<<
+
+  // 聊天底部表单 >>>
+  .input-container
+    position: absolute
+    bottom: 0
+    left: 0
+    width: 100%
+    height: px2rem(104)
+    background-color: $color-white
+    box-shadow: 0px 0px  10px 2px #F5F5F5
+    z-index: 100
+
+    .input-inner
+      display: flex
+      height: 100%
+      // height: px2rem(50)
+      // line-height: px2rem(50)
+
+    .input
+      display: inline-block
+      vertical-align: middle
+      flex: 1
+      padding: px2rem(27) px2rem(20)
+      font-size: px2rem(30)
+      txt__gray()
+
+    .disableBtn,.btn
+      display: inline-block
+      vertical-align: middle
+      width: px2rem(128)
+      height: px2rem(50)
+      line-height: px2rem(50)
+      margin: px2rem(27) 0
+      text-align: center
+      border-left: 1px solid $color-light-grey-s
+      font-size: px2rem(30)
+      txt__gray()
+    .disableBtn
+      color: #C7C4CD
+
+  // 聊天底部表单 <<<
+
+  //提问内容 >>>
+  .content-container .qw-inner
+    margin-top: px2rem(2)
+    padding: px2rem(20) px2rem(30)
+    background-color: #fff
+    font-family: PingFangSC-Regular
+
+    .qwList .qw
+      padding-bottom: px2rem(30)
+      border-bottom: 1px solid  #F5F5F5
+
+    .qwList .qw:last-child
+      padding-bottom:0
+      border-bottom: none
+
+    .qwList .qw .qsName
+      font-size: px2rem(32)
+      color: #466DE2
+
+    .qwList .qw .qsTime
+      font-size: px2rem(22)
+      color: #999999
+      padding-right: px2rem(24)
+
+    .qwList .qw .awName
+      font-size: px2rem(24)
+      color: #333333
+
+    .qwList .qw .awTime
+      font-size: px2rem(22)
+      color: #999999
+
+  .qw-inner .qwList .qw .qsTit
+    margin-top: px2rem(30)
+    margin-bottom: px2rem(20)
+
+  .qw-inner .qwList .qw:first-child .qsTit
+    margin-top: px2rem(10)
+
+  .qw-inner .qwList .qw .qsTit,.qw-inner .qwList .qw .awTit
+    height: px2rem(45)
+    display:flex
+    justify-content: space-between
+    align-items: center
+
+  .qw-inner .qwList .qw .qsText
+    font-size: px2rem(26)
+    color: #333333
+    line-height: px2rem(36)
+    word-break: break-all
+    word-wrap: break-word
+
+
+  .qw-inner .qwList .qw .answer-box
+    background-color: #F5F5F5
+    border-radius: px2rem(14)
+
+  .qw-inner .qwList .qw .answer
+    padding: 0 px2rem(20)
+    &:first-child
+      padding-top: px2rem(16)
+      margin-top: px2rem(20)
+
+  .qw-inner .qwList .qw .awText
+    font-size: px2rem(24)
+    line-height: px2rem(36)
+    color: #666666
+    padding-bottom: px2rem(18)
+    word-break: break-all
+    word-wrap: break-word
+  //提问内容 <<<
+
+  //提问底部 >>>
+  .input-question .input-inner
+    display: flex
+    align-items: center
+
+    p
+      width: px2rem(108)
+      text-align: center
+      border-right: 1px solid  #ccc
+
+    p i
+      font-size: px2rem(48)
+
+    p .icon-dianliang
+      color: #466DE2
+
+    p .icon-weidianliang
+      color: #ccc
+  //提问底部 <<<
+
+  .layer-backhome
+    display: flex
+    justify-content center
+    align-items: center
+    position: absolute
+    width: px2rem(100)
+    height: px2rem(100)
+    font-size: px2rem(28)
+    background: rgba(70, 109, 226, 0.7)
+    box-shadow: 0 5px 15px 0 rgba(70, 109, 226, 0.79)
+    border-radius: 50%
+    z-index: 900
+
+    .backhome-txt
+      width: px2rem(60)
+      line-height: px2rem(34)
+      txt__white()
