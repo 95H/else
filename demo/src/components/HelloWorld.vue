@@ -23,11 +23,15 @@
             </el-table-column>
         </el-table>-->
         <!-- <enlarge-the-picture></enlarge-the-picture> -->
+        <bubble></bubble>
+        <data></data>
     </div>
 </template>
 
 <script>
 import EnlargeThePicture from './enlargeImg' //图片放大缩小
+import Bubble from './bubble' //小气泡
+import Data from './data' //时间过虑
 export default {
     name: 'HelloWorld',
     data() {
