@@ -10,7 +10,7 @@
 </template>
 
 <script>
-import { formatDate } from '@/api/date.js' //1
+import { formatDate } from '@/api/data.js' //1
 export default {
     name: 'HelloWorld',
     data() {
